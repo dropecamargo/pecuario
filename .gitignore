@@ -1,6 +1,7 @@
 /vendor
 /node_modules
+/nbproject
+/resources/assets/libs
 Homestead.yaml
 Homestead.json
 .env
-/nbproject/private/
