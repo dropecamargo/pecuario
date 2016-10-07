@@ -1,0 +1,12 @@
+{
+  "name": "backbone",
+  "_cacheHeaders": {
+    "Last-Modified": "Thu, 22 Sep 2016 14:58:16 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "main": "index.js",
+  "_source": "http://backbonejs.org/backbone.js",
+  "_target": "*",
+  "_originalSource": "http://backbonejs.org/backbone.js",
+  "_direct": true
+}
