@@ -13,6 +13,8 @@ class AnimalTable extends Migration
     public function up()
     {
         Schema::create('animal', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->increments('animal_id');
             $table->string('animal_numero', 10);
             $table->string('animal_nombre');
@@ -30,9 +32,10 @@ class AnimalTable extends Migration
             $table->string('animal_rdfi',25);
             $table->boolean('animal_activo');
             $table->text('animal_foto');
-            $table->foreign('animal_especie')->references('especie_id')->on('especie');
-            $table->foreign('animal_raza')->references('raza_id')->on('raza');
-            $table->foreign('animal_lote')->references('lote_id')->on('lote');
+
+            $table->foreign('animal_especie')->references('id')->on('especie');
+            $table->foreign('animal_raza')->references('id')->on('raza');
+            $table->foreign('animal_lote')->references('id')->on('lote');
         });
     }
 

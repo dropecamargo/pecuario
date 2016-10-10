@@ -12,8 +12,10 @@ class LoteTable extends Migration
      */
     public function up()
     {
-        Schema::create('Lote', function (Blueprint $table) {
-            $table->increments('lote_id');
+        Schema::create('lote', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
+            $table->increments('id');
             $table->string('lote_nombre',10);
             $table->text('lote_descripcion');
             $table->string('lote_superficie',10);
@@ -23,7 +25,8 @@ class LoteTable extends Migration
             $table->integer('lote_alerta_sin_pesaje');
             $table->integer('lote_alerta_peso_inferior');
             $table->integer('lote_alerta_peso_superior');
-            $table->foreign('lote_hato')->references('hato_id')->on('hato');
+
+            $table->foreign('lote_hato')->references('id')->on('hato');
         });
     }
 

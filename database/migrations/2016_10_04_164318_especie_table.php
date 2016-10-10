@@ -13,7 +13,9 @@ class EspecieTable extends Migration
     public function up()
     {
         Schema::create('especie', function (Blueprint $table) {
-            $table->increments('especie_id');
+            $table->engine = 'InnoDB';
+
+            $table->increments('id');
             $table->string('especie_nombre', 20);
             $table->boolean('especie_activa');
         });

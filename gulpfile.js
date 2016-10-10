@@ -19,8 +19,8 @@ var paths = {
 elixir(function(mix) {
     mix.styles([
 		paths.adminlte + 'bootstrap/css/bootstrap.min.css',
-		paths.adminlte + 'dist/css/skins/skin-green.min.css',
-		paths.adminlte + 'plugins/iCheck/minimal/green.css',
+		paths.adminlte + 'dist/css/skins/skin-blue.min.css',
+		paths.adminlte + 'plugins/iCheck/minimal/blue.css',
 		paths.adminlte + 'plugins/select2/select2.min.css',
 		paths.adminlte + 'plugins/datepicker/datepicker3.css',
 		paths.adminlte + 'dist/css/AdminLTE.min.css',
@@ -33,13 +33,25 @@ elixir(function(mix) {
 elixir(function(mix) {
     mix.scripts([
         paths.libs + 'underscore/underscore.js',
-        paths.libs + 'backbone/backbone.js',
-        paths.libs + 'underscore/underscore.js',
 	 	paths.libs + 'backbone/backbone.js',
 	 	paths.libs + 'moment/moment.js',
 	 	paths.libs + 'moment/locale/es.js',
 	 	paths.libs + 'alertify.js/dist/js/alertify.js',
-    	paths.adminlte + 'plugins/jQuery/jquery-2.2.3.min.js'
+    	paths.adminlte + 'plugins/jQuery/jquery-2.2.3.min.js',
+        paths.adminlte + 'bootstrap/js/bootstrap.min.js',
+        paths.adminlte + 'dist/js/app.min.js',
+        paths.adminlte + 'plugins/slimScroll/jquery.slimscroll.min.js',
+        paths.adminlte + 'plugins/iCheck/icheck.min.js',
+        paths.adminlte + 'plugins/select2/select2.full.min.js',
+        paths.adminlte + 'plugins/select2/i18n/es.js',
+        paths.adminlte + 'plugins/datepicker/bootstrap-datepicker.js',
+        paths.adminlte + 'plugins/datepicker/locales/bootstrap-datepicker.es.js',
+        paths.libs + 'datatables.net/js/jquery.dataTables.min.js',
+        paths.libs + 'datatables.net-bs/js/dataTables.bootstrap.min.js',
+        paths.libs + 'datatables.net-buttons/js/buttons.html5.js',
+        paths.libs + 'datatables.net-buttons/js/dataTables.buttons.js',
+        paths.libs + 'datatables.net-buttons-bs/js/buttons.bootstrap.min.js',
+        paths.libs + 'accounting.js/accounting.min.js'
     ], 'public/js/vendor.min.js')
     .scripts([
         'models/*.js',

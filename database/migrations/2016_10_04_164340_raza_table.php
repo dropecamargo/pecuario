@@ -13,7 +13,9 @@ class RazaTable extends Migration
     public function up()
     {
         Schema::create('raza', function (Blueprint $table) {
-            $table->increments('raza_id');
+            $table->engine = 'InnoDB';
+
+            $table->increments('id');
             $table->string('raza_nombre',20);
             $table->boolean('raza_activa');
         });

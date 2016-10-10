@@ -10,7 +10,7 @@ return [
         'name' => 'Pecuario',
         'site' => 'http://www.vaziko.com',
         'image' => [
-            'logo' => '/images/koi.png',
+            'logo' => '/images/logo.png',
             'avatar' => '/images/avatar.svg'
         ],
     	'ano' => 2015
