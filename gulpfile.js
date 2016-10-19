@@ -32,11 +32,6 @@ elixir(function(mix) {
 
 elixir(function(mix) {
     mix.scripts([
-        paths.libs + 'underscore/underscore.js',
-	 	paths.libs + 'backbone/backbone.js',
-	 	paths.libs + 'moment/moment.js',
-	 	paths.libs + 'moment/locale/es.js',
-	 	paths.libs + 'alertify.js/dist/js/alertify.js',
     	paths.adminlte + 'plugins/jQuery/jquery-2.2.3.min.js',
         paths.adminlte + 'bootstrap/js/bootstrap.min.js',
         paths.adminlte + 'dist/js/app.min.js',
@@ -46,12 +41,18 @@ elixir(function(mix) {
         paths.adminlte + 'plugins/select2/i18n/es.js',
         paths.adminlte + 'plugins/datepicker/bootstrap-datepicker.js',
         paths.adminlte + 'plugins/datepicker/locales/bootstrap-datepicker.es.js',
+        paths.libs + 'bootstrap-validator/dist/validator.min.js',
         paths.libs + 'datatables.net/js/jquery.dataTables.min.js',
         paths.libs + 'datatables.net-bs/js/dataTables.bootstrap.min.js',
         paths.libs + 'datatables.net-buttons/js/buttons.html5.js',
         paths.libs + 'datatables.net-buttons/js/dataTables.buttons.js',
         paths.libs + 'datatables.net-buttons-bs/js/buttons.bootstrap.min.js',
-        paths.libs + 'accounting.js/accounting.min.js'
+        paths.libs + 'accounting.js/accounting.min.js',
+        paths.libs + 'underscore/underscore.js',
+        paths.libs + 'backbone/backbone.js',
+        paths.libs + 'moment/moment.js',
+        paths.libs + 'moment/locale/es.js',
+        paths.libs + 'alertify.js/dist/js/alertify.js',
     ], 'public/js/vendor.min.js')
     .scripts([
         'models/*.js',
