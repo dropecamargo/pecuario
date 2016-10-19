@@ -44,6 +44,12 @@
         </div>
 
         <script>window.document.url = "{{ URL::to('/') }}";</script>
+        
+
+        {{-- jQuery  --}}
+        <script src="{{ asset ("/js/jquery.min.js") }}"></script>
+        {{-- DataTables  --}}
+        <script src="{{ asset ("/js/jquery.dataTables.min.js") }}"></script>
         {{-- Vendor KOI App --}}
         <script src="{{ asset ("/js/vendor.min.js") }}" type="text/javascript"></script>
         {{-- KOI App --}}

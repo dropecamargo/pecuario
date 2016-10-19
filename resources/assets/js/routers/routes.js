@@ -12,6 +12,8 @@ app || (app = {});
     app.AppRouter = new( Backbone.Router.extend({
         routes : {
 
+            'especies(/)': 'getEspeciesMain',
+
         },
 
         /**
@@ -31,7 +33,17 @@ app || (app = {});
                 config.root = '/pecuario/public/';
 
             Backbone.history.start( config );
+        },
+
+        getEspeciesMain: function () {
+
+            if ( this.mainEspeciesView instanceof Backbone.View ){
+                this.mainEspeciesView.stopListening();
+                this.mainEspeciesView.undelegateEvents();
+            }
+
+            this.mainEspeciesView = new app.MainEspeciesView();
         }
-    }) );
+    }));
 
 })(jQuery, this, this.document);
