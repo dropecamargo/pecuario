@@ -11,7 +11,7 @@ app || (app = {});
 
     app.AppRouter = new( Backbone.Router.extend({
         routes : {
-
+            'login(/)': 'getLogin',
             'especies(/)': 'getEspeciesMain',
 
         },
@@ -33,6 +33,20 @@ app || (app = {});
                 config.root = '/pecuario/public/';
 
             Backbone.history.start( config );
+        },
+
+        /**
+        * show view login
+        * @param String show
+        */
+        getLogin: function () {
+
+            if ( this.loginView instanceof Backbone.View ){
+                this.loginView.stopListening();
+                this.loginView.undelegateEvents();
+            }
+
+            this.loginView = new app.UserLoginView( );
         },
 
         getEspeciesMain: function () {

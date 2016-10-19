@@ -22,7 +22,8 @@ Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@postL
 Route::group(['middleware' => 'auth'], function()
 {
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'HomeController@index']);
-	Route::resource('especies', 'EspeciesController',['only' =>['index']]);
+
+	Route::resource('especies', 'EspeciesController', ['except' => ['destroy']]);
 });
 
 
