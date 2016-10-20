@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use DB, Log, Datatables;
+use DataTables;
 
-use App\Models\Especies;
+use App\Models\Razas;
 
-class EspeciesController extends Controller
+class RazasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +20,10 @@ class EspeciesController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->ajax()) {
-            return Datatables::of(Especies::query())->make(true);
+        if($request->ajax()){
+            return DataTables::of(Razas::query())->make(true);
         }
-        return view('referencias.especies.index');   
+        return view('referencias.razas.index');
     }
 
     /**
@@ -33,7 +33,7 @@ class EspeciesController extends Controller
      */
     public function create()
     {
-        return view('referencias.especies.create');
+        //
     }
 
     /**
@@ -44,29 +44,7 @@ class EspeciesController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->ajax()){
-            $data = $request->all();
-
-            $especie = new Especies;
-            if($especie->isValid($data)){
-                DB::beginTransaction();
-                try{
-                    $especie->fill($data);
-                    $especie->fillBoolean($data);
-                    $especie->save();
-
-                    DB::commit();
-
-                    return response()->json(['success'=>true,'id' => $especie->id]);
-                }catch(\exception $e){
-                    DB::rollback();
-                    Log::error($e->getMessage());
-                    return response()->json(['success' => false,'errors' => trans('app.exception')]);
-                }
-            }
-            return response()->json(['success'=>false,'errors' => $especie->errors]);
-        }    
-        abort(403);
+        //
     }
 
     /**
@@ -77,11 +55,11 @@ class EspeciesController extends Controller
      */
     public function show(Request $request,$id)
     {
-        $especies = Especies::findOrFail($id);
-        if ($request->ajax()) {
-            return response()->json($especies);    
-        }        
-        return view('referencias.especies.show', ['especies' => $especies]);    
+        $razas = Razas::findOrFail($id);
+        if($request->ajax()){
+            return response()->json($razas);
+        }
+        return view('referencias.razas.show',['razas' => $razas]);
     }
 
     /**

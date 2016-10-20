@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function()
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'HomeController@index']);
 
 	Route::resource('especies', 'EspeciesController', ['except' => ['destroy']]);
+	Route::resource('razas', 'RazasController', ['except' => ['destroy']]);
 });
 
 

@@ -13,6 +13,8 @@ app || (app = {});
         routes : {
             'login(/)': 'getLogin',
             'especies(/)': 'getEspeciesMain',
+            'especies/create(/)': 'getEspeciesCreate',
+            'razas(/)': 'getRazasMain',
 
         },
 
@@ -57,7 +59,28 @@ app || (app = {});
             }
 
             this.mainEspeciesView = new app.MainEspeciesView();
-        }
+        },
+
+        getEspeciesCreate: function(){
+            this.especiesModel = new app.EspeciesModel();
+
+            if ( this.createEspeciesView instanceof Backbone.View ){
+                this.createEspeciesView.stopListening();
+                this.createEspeciesView.undelegateEvents();
+            }
+
+            this.createEspeciesView = new app.CreateEspeciesView({ model: this.especiesModel, parameters: { callback: 'toShow' } });
+            this.createEspeciesView.render();
+        },
+
+        getRazasMain: function(){
+            if (this.mainRazasView instanceof Backbone.View){
+                this.mainRazasView.stopListening();
+                this.mainRazasView.undelegateEvents();
+            }
+            this.mainRazasView = new app.MainRazasView();
+        },
+
     }));
 
 })(jQuery, this, this.document);
