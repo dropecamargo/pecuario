@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use DataTables;
+use DB, Log, Datatables;
 
 use App\Models\Razas;
 
@@ -33,7 +33,7 @@ class RazasController extends Controller
      */
     public function create()
     {
-        //
+        return view('referencias.razas.create');    
     }
 
     /**

@@ -1,18 +1,13 @@
-/*
-    Descripcion: Script utilizado para el apartado CREATE y UPDATE del Modulo Especies
-    @Author: Kevin Romero
-*/
-
 app || (app = {});
 
 (function ($, window, document, undefined) {
 
-    app.CreateEspeciesView = Backbone.View.extend({
+    app.CreateRazaView = Backbone.View.extend({
 
-        el: '#especie-create',
-        template: _.template( ($('#add-especie-tpl').html() || '') ),
+        el: '#raza-create',
+        template: _.template( ($('#add-raza-tpl').html() || '') ),
         events: {
-            'submit #form-especie': 'onStore'
+            'submit #form-raza': 'onStore'
         },
         parameters: {
             callback: ''
@@ -23,8 +18,8 @@ app || (app = {});
             if( opts !== undefined && _.isObject(opts.parameters) )
                 this.parameters = $.extend({}, this.parameters, opts.parameters);
             
-            this.msgSuccess = 'Especie Guardada!'; 
-            this.$wraperForm = this.$('#render-form-especie');
+            this.msgSuccess = 'Raza Guardada!'; 
+            this.$wraperForm = this.$('#render-form-raza');
 
             this.listenTo( this.model, 'change', this.render );
             this.listenTo( this.model, 'sync', this.responseServer );
@@ -80,7 +75,7 @@ app || (app = {});
                 var _this = this,
                     stuffToDo = {
                         'toShow' : function() {
-                            window.Misc.redirect( window.Misc.urlFull( Route.route('especies.show', { especies: resp.id })) );            
+                            window.Misc.redirect( window.Misc.urlFull( Route.route('razas.show', { razas: resp.id })) );            
                         },
 
                         'default' : function() {

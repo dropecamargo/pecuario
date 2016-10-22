@@ -12,10 +12,15 @@ app || (app = {});
     app.AppRouter = new( Backbone.Router.extend({
         routes : {
             'login(/)': 'getLogin',
+
+            //Rutas Modulo Especies
             'especies(/)': 'getEspeciesMain',
             'especies/create(/)': 'getEspeciesCreate',
             'especies/:especies/edit(/)': 'getEspeciesEdit',
+
+            //Rutas Modulo Razas
             'razas(/)': 'getRazasMain',
+            'razas/create(/)': 'getRazasCreate'
 
         },
 
@@ -97,6 +102,16 @@ app || (app = {});
             }
             this.mainRazasView = new app.MainRazasView();
         },
+
+        getRazasCreate: function(){
+            this.razasModel = app.RazasModel();
+            if(this.createRazaView instanceof Backbone.View){
+                this.createRazaView.stopListening();
+                this.createRazaView.undelegateEvents();
+            }
+            this.createRazaView = new app.CreateRazaView({ model: this.razasModel, parameters: { callback: "toShow" } });
+            this.createRazaView.render();
+        }
 
 
 
