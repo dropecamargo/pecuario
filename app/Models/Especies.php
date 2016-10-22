@@ -14,7 +14,6 @@ class Especies extends BaseModel
 	public $timestamps = false;
 
 	protected $fillable = ['especie_nombre'];
-
 	protected $boolean = ['especie_activa'];
 
 	public function isValid($data){

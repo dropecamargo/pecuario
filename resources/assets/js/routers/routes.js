@@ -14,6 +14,7 @@ app || (app = {});
             'login(/)': 'getLogin',
             'especies(/)': 'getEspeciesMain',
             'especies/create(/)': 'getEspeciesCreate',
+            'especies/:especies/edit(/)': 'getEspeciesEdit',
             'razas(/)': 'getRazasMain',
 
         },
@@ -51,6 +52,8 @@ app || (app = {});
             this.loginView = new app.UserLoginView( );
         },
 
+        //Modulo de Especies
+
         getEspeciesMain: function () {
 
             if ( this.mainEspeciesView instanceof Backbone.View ){
@@ -73,6 +76,20 @@ app || (app = {});
             this.createEspeciesView.render();
         },
 
+        getEspeciesEdit: function(especies){
+            this.especiesModel = new app.EspeciesModel();
+            this.especiesModel.set({'id': especies}, {silent: true});
+             if ( this.createEspeciesView instanceof Backbone.View ){
+                this.createEspeciesView.stopListening();
+                this.createEspeciesView.undelegateEvents();
+            }
+
+            this.createEspeciesView = new app.CreateEspeciesView({ model: this.especiesModel, parameters: { callback: 'toShow' } });
+            this.especiesModel.fetch();
+        },
+
+        // Modulo de Razas
+
         getRazasMain: function(){
             if (this.mainRazasView instanceof Backbone.View){
                 this.mainRazasView.stopListening();
@@ -80,6 +97,8 @@ app || (app = {});
             }
             this.mainRazasView = new app.MainRazasView();
         },
+
+
 
     }));
 

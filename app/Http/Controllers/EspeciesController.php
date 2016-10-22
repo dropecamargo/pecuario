@@ -92,7 +92,8 @@ class EspeciesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $especies = Especies::findOrFail($id);
+        return view('referencias.especies.edit', ['especies' => $especies]);    
     }
 
     /**
@@ -104,7 +105,28 @@ class EspeciesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->ajax()){
+            $data = $request->all();
+
+            $especie = Especies::findOrFail($id);
+            if($especie->isValid($data)){
+                DB::beginTransaction();
+                try{
+                    $especie->fill($data);
+                    $especie->fillBoolean($data);
+                    $especie->save();
+
+                    DB::commit();
+                    return response()->json(['success' => true,'id' => $especie->id]);
+                }catch(\Exception $e){
+                    DB::rollback();
+                    Log::errors($e->getMessage());
+                    return response()->json(['success' => false, 'errors' => trans('app.exception')]);
+                }
+            }
+            return response()->json(['success' => false, 'errors' => $centrocosto->errors]);
+        }       
+        abort(403); 
     }
 
     /**
