@@ -44,7 +44,29 @@ class RazasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){
+            $data = $request->all();
+
+            $raza = new Razas;
+            if($raza->isValid($data)){
+                DB::beginTransaction();
+                try{
+                    $raza->fill($data);
+                    $raza->fillBoolean($data);
+                    $raza->save();
+
+                    DB::commit();
+
+                    return response()->json(['success'=>true,'id' => $raza->id]);
+                }catch(\exception $e){
+                    DB::rollback();
+                    Log::error($e->getMessage());
+                    return response()->json(['success' => false,'errors' => trans('app.exception')]);
+                }
+            }
+            return response()->json(['success'=>false,'errors' => $raza->errors]);
+        }    
+        abort(403);
     }
 
     /**
@@ -70,7 +92,8 @@ class RazasController extends Controller
      */
     public function edit($id)
     {
-        //
+         $razas = Razas::findOrFail($id);
+        return view('referencias.razas.edit', ['razas' => $razas]);        
     }
 
     /**
@@ -82,7 +105,28 @@ class RazasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         if($request->ajax()){
+            $data = $request->all();
+
+            $raza = Razas::findOrFail($id);
+            if($raza->isValid($data)){
+                DB::beginTransaction();
+                try{
+                    $raza->fill($data);
+                    $raza->fillBoolean($data);
+                    $raza->save();
+
+                    DB::commit();
+                    return response()->json(['success' => true,'id' => $raza->id]);
+                }catch(\Exception $e){
+                    DB::rollback();
+                    Log::errors($e->getMessage());
+                    return response()->json(['success' => false, 'errors' => trans('app.exception')]);
+                }
+            }
+            return response()->json(['success' => false, 'errors' => $raza->errors]);
+        }       
+        abort(403);     
     }
 
     /**

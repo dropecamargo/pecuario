@@ -20,7 +20,8 @@ app || (app = {});
 
             //Rutas Modulo Razas
             'razas(/)': 'getRazasMain',
-            'razas/create(/)': 'getRazasCreate'
+            'razas/create(/)': 'getRazasCreate',
+            'razas/:razas/edit(/)': 'getRazasEdit' 
 
         },
 
@@ -104,16 +105,25 @@ app || (app = {});
         },
 
         getRazasCreate: function(){
-            this.razasModel = app.RazasModel();
+            this.razasModel = new app.RazasModel();
             if(this.createRazaView instanceof Backbone.View){
                 this.createRazaView.stopListening();
                 this.createRazaView.undelegateEvents();
             }
             this.createRazaView = new app.CreateRazaView({ model: this.razasModel, parameters: { callback: "toShow" } });
             this.createRazaView.render();
+        },
+
+        getRazasEdit: function(razas){
+            this.razasModel = new app.RazasModel();
+            this.razasModel.set({'id': razas},{silent: true});
+                if( this.createRazaView instanceof Backbone.View){
+                    this.createRazaView.stopListening();
+                    this.createRazaView.undelegateEvents();
+                }
+                this.createRazaView = new app.CreateRazaView({ model: this.razasModel, parameters: {callback: 'toShow'}});
+                this.razasModel.fetch();
         }
-
-
 
     }));
 

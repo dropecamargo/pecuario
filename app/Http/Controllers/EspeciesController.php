@@ -124,7 +124,7 @@ class EspeciesController extends Controller
                     return response()->json(['success' => false, 'errors' => trans('app.exception')]);
                 }
             }
-            return response()->json(['success' => false, 'errors' => $centrocosto->errors]);
+            return response()->json(['success' => false, 'errors' => $especie->errors]);
         }       
         abort(403); 
     }

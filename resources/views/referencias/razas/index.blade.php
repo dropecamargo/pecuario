@@ -11,6 +11,7 @@
                 <table id="razas-search-table" class="table table-bordered table-striped" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+                            <td>Codigo</td>
                             <th>Raza</th>
                             <th>Activa</th>
                         </tr>

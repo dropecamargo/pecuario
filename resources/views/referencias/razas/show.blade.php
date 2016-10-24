@@ -12,6 +12,9 @@
 				<div class="col-md-2 col-sm-12 col-xs-12 text-left">
 					<a href="{{ route('razas.index') }}" class="btn btn-default btn-sm btn-block">{{ trans('app.comeback') }}></a>
 				</div>
+				<div class="col-md-2 col-md-offset-8 col-sm-6 col-xs-6 text-right">
+                    <a href="{{ route('razas.edit', ['razas' => $razas->id]) }}" class="btn btn-primary btn-sm btn-block">{{ trans('app.edit') }}</a>
+                </div>
 			</div>
 		</div>
 		<div class="box-body">
