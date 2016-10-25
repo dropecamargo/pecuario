@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function()
 
 	Route::resource('especies', 'EspeciesController', ['except' => ['destroy']]);
 	Route::resource('razas', 'RazasController', ['except' => ['destroy']]);
+	Route::resource('hato','HatoController',['except'=>['destroy']]);
 });
 
 

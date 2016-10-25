@@ -21,7 +21,12 @@ app || (app = {});
             //Rutas Modulo Razas
             'razas(/)': 'getRazasMain',
             'razas/create(/)': 'getRazasCreate',
-            'razas/:razas/edit(/)': 'getRazasEdit' 
+            'razas/:razas/edit(/)': 'getRazasEdit',
+
+            //Rutas Modulo Hato
+            'hato(/)': 'getHatoMain',
+            'hato/create(/)': 'getHatoCreate',
+            'hato/:hato/edit(/)': 'getHatoEdit',
 
         },
 
@@ -123,6 +128,36 @@ app || (app = {});
                 }
                 this.createRazaView = new app.CreateRazaView({ model: this.razasModel, parameters: {callback: 'toShow'}});
                 this.razasModel.fetch();
+        },
+
+        // Modulo de Hato
+        getHatoMain: function(){
+            if (this.mainHatoView instanceof Backbone.View){
+                this.mainHatoView.stopListening();
+                this.mainHatoView.undelegateEvents();
+            }
+            this.mainHatoView = new app.MainHatoView();
+        },
+
+         getHatoCreate: function(){
+            this.hatoModel = new app.HatoModel();
+            if(this.createHatoView instanceof Backbone.View){
+                this.createHatoView.stopListening();
+                this.createHatoView.undelegateEvents();
+            }
+            this.createHatoView = new app.CreateHatoView({ model: this.hatoModel, parameters: { callback: "toShow" } });
+            this.createHatoView.render();
+        },
+
+        getHatoEdit: function(hato){
+            this.hatoModel = new app.HatoModel();
+            this.hatoModel.set({'id': hato},{silent: true});
+                if( this.createHatoView instanceof Backbone.View){
+                    this.createHatoView.stopListening();
+                    this.createHatoView.undelegateEvents();
+                }
+                this.createHatoView = new app.CreateHatoView({ model: this.hatoModel, parameters: {callback: 'toShow'}});
+                this.hatoModel.fetch();
         }
 
     }));
