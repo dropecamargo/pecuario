@@ -28,6 +28,11 @@ app || (app = {});
             'hato/create(/)': 'getHatoCreate',
             'hato/:hato/edit(/)': 'getHatoEdit',
 
+            //Rutas Modulo Lote
+            'lote(/)': 'getLoteMain',
+            'lote/create(/)': 'getLoteCreate',
+            'lote/:hato/edit(/)': 'getLoteEdit',
+
         },
 
         /**
@@ -158,7 +163,38 @@ app || (app = {});
                 }
                 this.createHatoView = new app.CreateHatoView({ model: this.hatoModel, parameters: {callback: 'toShow'}});
                 this.hatoModel.fetch();
-        }
+        },
+
+        //Modulo Lotes
+
+        getLoteMain: function(){
+           if (this.mainLoteView instanceof Backbone.View){
+               this.mainLoteView.stopListening();
+               this.mainLoteView.undelegateEvents();
+           }
+           this.mainLoteView = new app.MainLoteView();
+       },
+
+        getLoteCreate: function(){
+           this.loteModel = new app.LoteModel();
+           if(this.createLoteView instanceof Backbone.View){
+               this.createLoteView.stopListening();
+               this.createLoteView.undelegateEvents();
+           }
+           this.createLoteView = new app.CreateLoteView({ model: this.loteModel, parameters: { callback: "toShow" } });
+           this.createLoteView.render();
+       },
+
+       getLoteEdit: function(lote){
+           this.loteModel = new app.LoteModel();
+           this.loteModel.set({'id': hato},{silent: true});
+               if( this.createLoteView instanceof Backbone.View){
+                   this.createLoteView.stopListening();
+                   this.createLoteView.undelegateEvents();
+               }
+               this.createLoteView = new app.CreateLoteView({ model: this.loteModel, parameters: {callback: 'toShow'}});
+               this.loteModel.fetch();
+       }
 
     }));
 

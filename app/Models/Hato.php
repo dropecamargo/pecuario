@@ -29,4 +29,12 @@ class Hato extends BaseModel
         $this->errors = $validator->errors();
         return false;
 	}
+
+	public static function getHatos()
+    {
+        $query = Hato::query();
+        $collection = $query->lists('hato_nombre');
+        $collection->prepend('', '');
+        return $collection;
+    }
 }
