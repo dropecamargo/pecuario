@@ -28,4 +28,11 @@ class Razas extends BaseModel
     	$this->errors = $validator->errors();
         return false;
     }
+    public static function getRazas()
+    {
+        $query = Razas::query();
+        $collection = $query->lists('raza_nombre','id');
+        $collection->prepend('', '');
+        return $collection;
+    }
 }

@@ -33,7 +33,7 @@ class Hato extends BaseModel
 	public static function getHatos()
     {
         $query = Hato::query();
-        $collection = $query->lists('hato_nombre');
+        $collection = $query->lists('hato_nombre','id');
         $collection->prepend('', '');
         return $collection;
     }

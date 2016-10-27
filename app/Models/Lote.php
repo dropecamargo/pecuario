@@ -13,8 +13,8 @@ class Lote extends BaseModel
 protected $table = "lote";
 public $timestamps = false;
 
-protected $fillable = ['lote_nombre','lote_descripcion','lote_color','lote_superficie','lote_hato','lote_alerta_peso_inferior','lote_alerta_peso_superior'];
-protected $boolean = ['lote_activo','lote_alerta_sin_pesaje'];
+protected $fillable = ['lote_nombre','lote_descripcion','lote_color','lote_superficie','lote_hato','lote_alerta_sin_pesaje','lote_alerta_peso_inferior','lote_alerta_peso_superior'];
+protected $boolean = ['lote_activo'];
 
 public function isValid($data){
 $rules = [
@@ -33,4 +33,20 @@ $validator = Validator::make($data, $rules);
        $this->errors = $validator->errors();
        return false;
 }
+
+ public static function getLote($id)
+    {
+        $query = Lote::query();
+        $query->select('lote.*', 'hato_nombre');
+        $query->leftJoin('hato', 'lote.lote_hato', '=', 'hato.id');
+        $query->where('lote.id', $id);
+        return $query->first();
+    }
+    public static function getLotes()
+    {
+        $query = Lote::query();
+        $collection = $query->lists('lote_nombre','id');
+        $collection->prepend('', '');
+        return $collection;
+    }
 }

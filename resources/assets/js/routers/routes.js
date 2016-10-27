@@ -33,6 +33,9 @@ app || (app = {});
             'lote/create(/)': 'getLoteCreate',
             'lote/:lote/edit(/)': 'getLoteEdit',
 
+            //Rutas Modulo Animal
+            'animal(/)': 'getAnimalMain'
+
         },
 
         /**
@@ -187,13 +190,22 @@ app || (app = {});
 
        getLoteEdit: function(lote){
            this.loteModel = new app.LoteModel();
-           this.loteModel.set({'id': hato},{silent: true});
+           this.loteModel.set({'id': lote},{silent: true});
                if( this.createLoteView instanceof Backbone.View){
                    this.createLoteView.stopListening();
                    this.createLoteView.undelegateEvents();
                }
                this.createLoteView = new app.CreateLoteView({ model: this.loteModel, parameters: {callback: 'toShow'}});
                this.loteModel.fetch();
+       },
+
+       //Modulo Animal
+       getAnimalMain: function(){
+            if(this.mainAnimalView instanceof Backbone.View){
+                this.mainAnimalView.stopListening();
+                this.mainAnimalView.undelegateEvents();
+            }
+            this.mainAnimalView = new app.MainAnimalView();
        }
 
     }));

@@ -9,9 +9,9 @@ use App\Http\Controllers\Controller;
 
 use DB, Log, Datatables;
 
-use App\Models\Lote;
+use App\Models\Animal;
 
-class LoteController extends Controller
+class AnimalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +20,10 @@ class LoteController extends Controller
      */
     public function index(Request $request)
     {
-          if($request->ajax()){
-            return DataTables::of(Lote::query())->make(true);
+        if($request->ajax()){
+            return Datatables::of(Animal::getAnimales())->make(true);
         }
-        return view('referencias.lote.index');
+        return view('animal.index');
     }
 
     /**
@@ -33,40 +33,39 @@ class LoteController extends Controller
      */
     public function create()
     {
-        return view('referencias.lote.create');
-    }
+        return view('animal.create');  
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+     }
+    
+
+  
     public function store(Request $request)
     {
         if($request->ajax()){
             $data = $request->all();
 
-            $lote = new Lote;
-            if($lote->isValid($data)){
+            $animal = new Animal;
+            if($animal->isValid($data)){
                 DB::beginTransaction();
                 try{
-                    $lote->fill($data);
-                    $lote->fillBoolean($data);
-                    $lote->save();
+                    $animal->fill($data);
+                    $animal->fillBoolean($data);
+                    $animal->save();
 
                     DB::commit();
 
-                    return response()->json(['success'=>true,'id' => $lote->id]);
+                    return response()->json(['success'=>true,'id' => $animal->id]);
                 }catch(\exception $e){
                     DB::rollback();
                     Log::error($e->getMessage());
                     return response()->json(['success' => false,'errors' => trans('app.exception')]);
                 }
             }
-            return response()->json(['success'=>false,'errors' => $lote->errors]);
+            return response()->json(['success'=>false,'errors' => $animal->errors]);
         }    
-        abort(403);    }
+        abort(403);   
+     }
 
     /**
      * Display the specified resource.
@@ -74,13 +73,14 @@ class LoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, Request $request)
+    public function show($id,request $request)
     {
-         $lote = Lote::getLote($id);
+        $animal = Animal::findOrFail($id);
         if ($request->ajax()) {
-            return response()->json($lote);    
+            return response()->json($animal);    
         }        
-        return view('referencias.lote.show', ['lote' => $lote]);        }
+        return view('animal.show', ['animal' => $animal]);    
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -90,8 +90,8 @@ class LoteController extends Controller
      */
     public function edit($id)
     {
-        $lote = Lote::findOrFail($id);
-        return view('referencias.lote.edit',['lote' => $lote]);    
+        $animal = Animal::findOrFail($id);
+        return view('animal.edit', ['animal' => $animal]);  
     }
 
     /**
@@ -103,30 +103,29 @@ class LoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->ajax()){
+         if($request->ajax()){
             $data = $request->all();
 
-            $lote = Lote::findOrFail($id);
-            if($lote->isValid($data)){
+            $animal = Animal::findOrFail($id);
+            if($animal->isValid($data)){
                 DB::beginTransaction();
                 try{
-                    $lote->fill($data);
-                    $lote->fillBoolean($data);
-                    $lote->save();
+                    $animal->fill($data);
+                    $animal->fillBoolean($data);
+                    $animal->save();
 
                     DB::commit();
-                    return response()->json(['success' => true,'id' => $lote->id]);
+                    return response()->json(['success' => true,'id' => $animal->id]);
                 }catch(\Exception $e){
                     DB::rollback();
                     Log::errors($e->getMessage());
                     return response()->json(['success' => false, 'errors' => trans('app.exception')]);
                 }
             }
-            return response()->json(['success' => false, 'errors' => $lote->errors]);
+            return response()->json(['success' => false, 'errors' => $animal->errors]);
         }       
-        abort(403);       
+        abort(403);   
     }
-
 
     /**
      * Remove the specified resource from storage.

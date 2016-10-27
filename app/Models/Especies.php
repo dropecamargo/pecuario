@@ -29,4 +29,11 @@ class Especies extends BaseModel
         $this->errors = $validator->errors();
         return false;
 	}
+	public static function getEspecies()
+    {
+        $query = Especies::query();
+        $collection = $query->lists('especie_nombre','id');
+        $collection->prepend('', '');
+        return $collection;
+    }
 }

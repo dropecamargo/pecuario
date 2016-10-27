@@ -1,7 +1,7 @@
 @extends('referencias.lote.main')
 
 @section('breadcrumb')
-	<li><a href="{{ route('lote.index')}}">Lote</a></li>
+    <li><a href="{{ route('lote.index')}}">Lote</a></li>
     <li class="active">{{ $lote->id }}</li>
 @stop
 
@@ -23,13 +23,12 @@
                     <label class="control-label">Código</label>
                     <div>{{ $lote->id }}</div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-6">
                     <label class="control-label">Nombre</label>
                     <div>{{ $lote->lote_nombre }}</div>
                     </div>
             </div>
+            
             <div class="row">
                 <div class="form-group col-md-8">
                     <label class="control-label">Descripcion</label>
@@ -37,9 +36,36 @@
                     </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-4">
                     <label class="control-label">Color</label>
                     <div>{{ $lote->lote_color }}</div>
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label class="control-label">Hato</label>
+                    <div>{{ $lote->hato_nombre}}</div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Lote superficie</label>
+                    <div>{{ $lote->lote_superficie }}</div>
+                    </div>
+         
+                <div class="form-group col-md-4">
+                    <label class="control-label">Lote alerta sin pesaje</label>
+                    <div>{{ $lote->lote_alerta_sin_pesaje }}</div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Lote alerta peso inferior</label>
+                    <div>{{ $lote->lote_alerta_peso_inferior }}</div>
+                    </div>
+            
+                <div class="form-group col-md-4">
+                    <label class="control-label">Lote alerta peso superior</label>
+                    <div>{{ $lote->lote_alerta_peso_superior }}</div>
                     </div>
             </div>
         </div>

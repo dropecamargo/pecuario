@@ -15,7 +15,7 @@ defaults:{
 'lote_activo': true,
 'lote_superficie':'',
 'lote_hato':'',
-'lote_alerta_sin_pesaje':true,
+'lote_alerta_sin_pesaje':0,
 'lote_alerta_peso_inferior':0,
 'lote_alerta_peso_superior':0
 
