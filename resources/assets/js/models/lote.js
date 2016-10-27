@@ -16,8 +16,8 @@ defaults:{
 'lote_superficie':'',
 'lote_hato':'',
 'lote_alerta_sin_pesaje':true,
-'lote_alerta_peso_inferior':'',
-'lote_alerta_peso_superior':''
+'lote_alerta_peso_inferior':0,
+'lote_alerta_peso_superior':0
 
 }
 });

@@ -44,8 +44,29 @@ class LoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        if($request->ajax()){
+            $data = $request->all();
+
+            $lote = new Lote;
+            if($lote->isValid($data)){
+                DB::beginTransaction();
+                try{
+                    $lote->fill($data);
+                    $lote->fillBoolean($data);
+                    $lote->save();
+
+                    DB::commit();
+
+                    return response()->json(['success'=>true,'id' => $lote->id]);
+                }catch(\exception $e){
+                    DB::rollback();
+                    Log::error($e->getMessage());
+                    return response()->json(['success' => false,'errors' => trans('app.exception')]);
+                }
+            }
+            return response()->json(['success'=>false,'errors' => $lote->errors]);
+        }    
+        abort(403);    }
 
     /**
      * Display the specified resource.
@@ -53,10 +74,13 @@ class LoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        //
-    }
+         $lote = Lote::findOrFail($id);
+        if ($request->ajax()) {
+            return response()->json($lote);    
+        }        
+        return view('referencias.lote.show', ['lote' => $lote]);        }
 
     /**
      * Show the form for editing the specified resource.

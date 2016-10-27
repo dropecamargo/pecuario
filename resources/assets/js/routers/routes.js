@@ -31,7 +31,7 @@ app || (app = {});
             //Rutas Modulo Lote
             'lote(/)': 'getLoteMain',
             'lote/create(/)': 'getLoteCreate',
-            'lote/:hato/edit(/)': 'getLoteEdit',
+            'lote/:lote/edit(/)': 'getLoteEdit',
 
         },
 

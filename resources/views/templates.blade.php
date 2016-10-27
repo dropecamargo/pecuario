@@ -102,8 +102,8 @@
 
       <div class="row">
     <div class="form-group col-md-6 col-xs-10">
-			<label for="hato_nombre" class="control-label">Hato</label>
-			<select name="hato_nombre" id="hato_nombre" class="form-control select2-default" required>
+			<label for="lote_hato" class="control-label">Hato</label>
+			<select name="lote_hato" id="lote_hato" class="form-control select2-default" required>
 				@foreach( App\Models\Hato::getHatos() as $key => $value)
 					<option value="{{ $key }}">{{ $value }}</option>
 				@endforeach
