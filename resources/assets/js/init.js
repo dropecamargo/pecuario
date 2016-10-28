@@ -26,6 +26,7 @@ var app = app || {};
         initialize: function () {
             //Initialize
             this.initApp();
+            this.initDatePicker();
         },
 
         /**
@@ -33,7 +34,16 @@ var app = app || {};
         */
         initApp: function () {
             window.app.AppRouter.start();
-        }
+        },
+
+        initDatePicker: function () {
+
+            $('.datepicker').datepicker({
+                autoclose: true,
+                language: 'es',
+                format: 'yyyy-mm-dd'
+            });
+        },
     };
 
     //Init App Components

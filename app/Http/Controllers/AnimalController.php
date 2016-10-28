@@ -34,8 +34,6 @@ class AnimalController extends Controller
     public function create()
     {
         return view('animal.create');  
-
-
      }
     
 
@@ -55,7 +53,7 @@ class AnimalController extends Controller
 
                     DB::commit();
 
-                    return response()->json(['success'=>true,'id' => $animal->id]);
+                    return response()->json(['success'=>true,'animal_id' => $animal->animal_id]);
                 }catch(\exception $e){
                     DB::rollback();
                     Log::error($e->getMessage());
@@ -75,7 +73,7 @@ class AnimalController extends Controller
      */
     public function show($id,request $request)
     {
-        $animal = Animal::findOrFail($id);
+        $animal = Animal::getAnimal($id);
         if ($request->ajax()) {
             return response()->json($animal);    
         }        
@@ -90,7 +88,7 @@ class AnimalController extends Controller
      */
     public function edit($id)
     {
-        $animal = Animal::findOrFail($id);
+        $animal = Animal::getAnimal($id);
         return view('animal.edit', ['animal' => $animal]);  
     }
 
@@ -106,7 +104,7 @@ class AnimalController extends Controller
          if($request->ajax()){
             $data = $request->all();
 
-            $animal = Animal::findOrFail($id);
+            $animal = Animal::getAnimal($id);
             if($animal->isValid($data)){
                 DB::beginTransaction();
                 try{
@@ -115,7 +113,7 @@ class AnimalController extends Controller
                     $animal->save();
 
                     DB::commit();
-                    return response()->json(['success' => true,'id' => $animal->id]);
+                    return response()->json(['success' => true,'animal_id' => $animal->animal_id]);
                 }catch(\Exception $e){
                     DB::rollback();
                     Log::errors($e->getMessage());

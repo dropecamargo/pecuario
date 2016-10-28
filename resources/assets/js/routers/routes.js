@@ -34,7 +34,9 @@ app || (app = {});
             'lote/:lote/edit(/)': 'getLoteEdit',
 
             //Rutas Modulo Animal
-            'animal(/)': 'getAnimalMain'
+            'animal(/)': 'getAnimalMain',
+            'animal/create(/)': 'getAnimalCreate',
+            'animal/:animal/edit(/)': 'getAnimalEdit'
 
         },
 
@@ -206,7 +208,28 @@ app || (app = {});
                 this.mainAnimalView.undelegateEvents();
             }
             this.mainAnimalView = new app.MainAnimalView();
-       }
+       },
+
+         getAnimalCreate: function(){
+            this.animalModel = new app.AnimalModel();
+            if(this.createAnimalView instanceof Backbone.View){
+                this.createAnimalView.stopListening();
+                this.createAnimalView.undelegateEvents();
+            }
+            this.createAnimalView = new app.CreateAnimalView({ model: this.animalModel, parameters: { callback: "toShow" } });
+            this.createAnimalView.render();
+        },
+
+        getAnimalEdit: function(animal){
+            this.animalModel = new app.AnimalModel();
+            this.animalModel.set({'animal_id': animal},{silent: true});
+                if( this.createAnimalView instanceof Backbone.View){
+                    this.createAnimalView.stopListening();
+                    this.createAnimalView.undelegateEvents();
+                }
+                this.createAnimalView = new app.CreateAnimalView({ model: this.animalModel, parameters: {callback: 'toShow'}});
+                this.animalModel.fetch();
+        }
 
     }));
 

@@ -18,6 +18,7 @@
                             <th>Raza</th>
                             <th>Lote</th>
                             <th>Activo</th>
+                            
                         </tr>
                     </thead>
                 </table>

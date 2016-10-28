@@ -26,8 +26,8 @@ app || (app = {});
                     { data: 'animal_numero', name: 'animal_numero' },
                     { data: 'animal_nombre', name: 'animal_nombre' },
                     { data: 'especie_nombre', name: 'especie_nombre'},
-                    { data: 'animal_raza', name: 'animal_raza'},
-                    { data: 'animal_lote', name: 'animal_lote'},
+                    { data: 'raza_nombre', name: 'raza_nombre'},
+                    { data: 'lote_nombre', name: 'lote_nombre'},
                     { data: 'animal_activo', name: 'animal_activo'}
                     
                 ],
@@ -45,7 +45,7 @@ app || (app = {});
                         targets: 0,
                         width: "10%",
                         render: function( data, type, full, row ){
-                            return '<a href="'+ window.Misc.urlFull( Route.route('animal.show', {animal: full.id }) )  +'">' + data + '</a>';
+                            return '<a href="'+ window.Misc.urlFull( Route.route('animal.show', {animal: full.animal_id }) )  +'">' + data + '</a>';
                         }
                     },
                     {
