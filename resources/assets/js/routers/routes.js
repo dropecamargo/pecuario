@@ -222,7 +222,7 @@ app || (app = {});
 
         getAnimalEdit: function(animal){
             this.animalModel = new app.AnimalModel();
-            this.animalModel.set({'animal_id': animal},{silent: true});
+            this.animalModel.set({'id': animal},{silent: true});
                 if( this.createAnimalView instanceof Backbone.View){
                     this.createAnimalView.stopListening();
                     this.createAnimalView.undelegateEvents();

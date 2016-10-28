@@ -13,7 +13,7 @@ class Animal extends BaseModel
 	   protected $table = "animal";
 	   public $timestamps = false;
 
-    protected $fillable = ['animal_numero','animal_nombre','animal_pedigree','animal_padre','animal_madre','animal_indice_corporal','animal_observaciones','animal_rdfi','animal_raza','animal_lote','animal_especie','animal_nacimiento','path'];
+    protected $fillable = ['animal_numero','animal_nombre','animal_pedigree','animal_padre','animal_madre','animal_indice_corporal','animal_observaciones','animal_rdfi','animal_raza','animal_lote','animal_especie','animal_nacimiento','animal_foto'];
     protected $boolean = ['animal_activo','animal_macho'];
 
     public function isValid($data){
@@ -52,11 +52,11 @@ $validator = Validator::make($data, $rules);
     public static function getAnimal($id)
     {
         $query = Animal::query();
-        $query->select('animal.*', 'lote_nombre','especie_nombre','raza_nombre');
         $query->join('lote', 'animal.animal_lote', '=', 'lote.id');
         $query->join('raza','animal.animal_raza','=','raza.id');
         $query->join('especie','animal.animal_especie','=','especie.id');
-        $query->where('animal.animal_id', $id);
+        $query->select('animal.*', 'lote_nombre','especie_nombre','raza_nombre');
+        $query->where('animal.id', $id);
         return $query->first();
     }
 

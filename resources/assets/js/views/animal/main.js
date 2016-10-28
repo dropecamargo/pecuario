@@ -22,7 +22,7 @@ app || (app = {});
                 language: window.Misc.dataTableES(),
                 ajax: window.Misc.urlFull( Route.route('animal.index') ),
                 columns: [
-                    { data: 'animal_id', name: 'animal_id'},
+                    { data: 'id', name: 'id'},
                     { data: 'animal_numero', name: 'animal_numero' },
                     { data: 'animal_nombre', name: 'animal_nombre' },
                     { data: 'especie_nombre', name: 'especie_nombre'},
@@ -45,7 +45,7 @@ app || (app = {});
                         targets: 0,
                         width: "10%",
                         render: function( data, type, full, row ){
-                            return '<a href="'+ window.Misc.urlFull( Route.route('animal.show', {animal: full.animal_id }) )  +'">' + data + '</a>';
+                            return '<a href="'+ window.Misc.urlFull( Route.route('animal.show', {animal: full.id }) )  +'">' + data + '</a>';
                         }
                     },
                     {

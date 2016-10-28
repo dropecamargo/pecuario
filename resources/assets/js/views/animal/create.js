@@ -78,7 +78,7 @@ app || (app = {});
                 var _this = this,
                     stuffToDo = {
                         'toShow' : function() {
-                            window.Misc.redirect( window.Misc.urlFull( Route.route('animal.show', { animal: resp.animal_id })) );            
+                            window.Misc.redirect( window.Misc.urlFull( Route.route('animal.show', { animal: resp.id })) );            
                         },
 
                         'default' : function() {

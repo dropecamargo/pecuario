@@ -7,7 +7,7 @@ app.AnimalModel = Backbone.Model.extend({
 urlRoot: function(){
 return window.Misc.urlFull( Route.route('animal.index'));
 },
-idAttribute: 'animal_id',
+idAttribute: 'id',
 defaults:{
 'animal_numero':'',
 'animal_nombre':'',

@@ -53,7 +53,7 @@ class AnimalController extends Controller
 
                     DB::commit();
 
-                    return response()->json(['success'=>true,'animal_id' => $animal->animal_id]);
+                    return response()->json(['success'=>true,'id' => $animal->id]);
                 }catch(\exception $e){
                     DB::rollback();
                     Log::error($e->getMessage());
@@ -113,7 +113,7 @@ class AnimalController extends Controller
                     $animal->save();
 
                     DB::commit();
-                    return response()->json(['success' => true,'animal_id' => $animal->animal_id]);
+                    return response()->json(['success' => true,'id' => $animal->id]);
                 }catch(\Exception $e){
                     DB::rollback();
                     Log::errors($e->getMessage());
