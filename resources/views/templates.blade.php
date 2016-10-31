@@ -113,6 +113,14 @@
 				@endforeach
 			</select>
 		</div>
+
+		<div class="form-group col-md-1 col-xs-2 text-right">
+			<div>&nbsp;</div>
+			<button type="button" class="btn btn-default btn-flat btn-sm btn-add-resource-koi-component" data-resource="hato" data-field="lote_hato">
+				<i class="fa fa-plus"></i>
+			</button>
+		</div>
+
 		<div class="form-group col-md-3">
 			<br><label class="checkbox-inline" for="lote_activo">
 				<input type="checkbox" id="lote_activo" name="lote_activo" value="lote_activo" <%- lote_activo ? 'checked': ''%>> Activo
@@ -207,9 +215,11 @@
 			</label>
 		</div>
 		<div class="form-group">
-			{!!Form::label('foto','Foto:')!!}
-			{!!Form::file('path')!!}
-		</div>
+              <label class="col-md-4 control-label">Nuevo Archivo</label>
+              <div class="col-md-6">
+              <input type="file" class="form-control" name="animal_foto" id="animal_foto" >
+            </div>
+        </div>
     </div>
 
 

@@ -7,7 +7,7 @@
 
 @section('module')
 	<div class="box box-success" id="animal-create">
-		{!! Form::open(['id' => 'form-animal', 'data-toggle' => 'validator']) !!}
+		{!! Form::open(['id' => 'form-animal', 'data-toggle' => 'validator', 'files' => true]) !!}
 	        <div class="box-header with-border">
 	        	<div class="row">
 					<div class="col-md-2 col-sm-6 col-xs-6 text-left">

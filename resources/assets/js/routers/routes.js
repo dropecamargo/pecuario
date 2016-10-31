@@ -45,6 +45,7 @@ app || (app = {});
         */
         initialize : function ( opts ){
             // Initialize resources
+            this.componentCreateResourceView = new app.ComponentCreateResourceView();
       	},
 
         /**

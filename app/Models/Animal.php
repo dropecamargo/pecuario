@@ -16,6 +16,12 @@ class Animal extends BaseModel
     protected $fillable = ['animal_numero','animal_nombre','animal_pedigree','animal_padre','animal_madre','animal_indice_corporal','animal_observaciones','animal_rdfi','animal_raza','animal_lote','animal_especie','animal_nacimiento','animal_foto'];
     protected $boolean = ['animal_activo','animal_macho'];
 
+    public function setPathAttribute($path){
+        $this->attributes['animal_foto'] = $path->getClienteOriginalName();
+        $name = $path->getClienteOriginalName();
+        \Storage::disk('local')->put($name, \File::get($path));
+    }
+
     public function isValid($data){
         $rules = [
             'animal_numero' => '',
@@ -26,16 +32,17 @@ class Animal extends BaseModel
             'animal_indice_corporal' => 'required',
             'animal_observaciones' => 'required',
             'animal_rdfi' =>'required',
-            'animal_nacimiento' => 'required|date_format:Y-m-d'
+            'animal_nacimiento' => 'required|date_format:Y-m-d',
+            'animal_foto' => 'image|mimes:jpeg,bmp,png'
             ];
 
-$validator = Validator::make($data, $rules);
+    $validator = Validator::make($data, $rules);
        if ($validator->passes()) {
            return true;
        }
        $this->errors = $validator->errors();
        return false;
-}
+    }
 
 	public static function getAnimales()
     {
