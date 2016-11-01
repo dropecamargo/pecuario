@@ -63,6 +63,18 @@
                    <label class="control-label">Observaciones</label>
                    <div>{{ $animal->animal_observaciones }}</div>
              </div>
+             <div class="form-group col-md-2">
+                   <label class="control-label"> Sexo </label>
+            
+              <div>
+                  @if ( $animal->animal_macho == 0)
+                     Macho
+                     @else
+                     Hembra
+                     @endif
+               </div>
+                </div>
+             </div>
            </div>
        </div>
    </div>

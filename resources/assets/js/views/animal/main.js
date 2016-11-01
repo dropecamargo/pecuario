@@ -30,6 +30,7 @@ app || (app = {});
                     { data: 'lote_nombre', name: 'lote_nombre'},
                     { data: 'animal_activo', name: 'animal_activo'}
                     
+                    
                 ],
                 buttons: [
                     {

@@ -132,73 +132,97 @@
 
 <script type="text/template" id="add-animal-tpl">
     <div class="row">
-       <div class="form-group col-md-3">
+       <div class="form-group col-md-2">
 			<label for="animal_numero" class="control-label">Numero</label>
 			<input type="text" id="animal_numero" name="animal_numero" value="<%- animal_numero %>" placeholder="Numero" class="form-control input-sm input-toupper" maxlength="20" required>
 		</div>
-		<div class="form-group col-md-7">
-			<label for="animal_nombre" class="control-label">Nombre</label>
-			<input type="text" id="animal_nombre" name="animal_nombre" value="<%- animal_nombre %>" placeholder="Nombre" class="form-control input-sm input-toupper" maxlength="200" required>
-		</div>
-		<div class="form-group col-md-7">
+		<div class="form-group col-md-2">
 			<label for="animal_rdfi" class="control-label">RDFI</label>
 			<input type="text" id="animal_rdfi" name="animal_rdfi" value="<%- animal_rdfi %>" placeholder="RDFI" class="form-control input-sm input-toupper" maxlength="200" required>
 		</div>
+		<div class="form-group col-md-3">
+			<label for="animal_nombre" class="control-label">Nombre</label>
+			<input type="text" id="animal_nombre" name="animal_nombre" value="<%- animal_nombre %>" placeholder="Nombre" class="form-control input-sm input-toupper" maxlength="200" required>
+		</div>
+		 <div class="form-group col-md-2 col-xs-3 col-sm-3">
+			<br><label class="checkbox-inline" for="animal_activo">
+				<input type="checkbox" id="animal_activo" name="animal_activo" value="animal_activo" <%- animal_activo ? 'checked': ''%>> Activo
+			</label>
+		</div>
+		
 		<div class="form-group col-md-7">
 			<label for="animal_observaciones" class="control-label">Observaciones</label>
 			<input type="text" id="animal_observaciones" name="animal_observaciones" value="<%- animal_observaciones %>" placeholder="Observaciones" class="form-control input-sm input-toupper" maxlength="200" required>
 		</div>
-		 
+		 <div class="form-group col-sm-2">
+            <label for="animal_nacimiento" class="col-sm-1 control-label">Fecha</label>
+                <input type="text" id="animal_nacimiento" name="animal_nacimiento" placeholder="Fecha" value="<%- animal_nacimiento %>" class="form-control input-sm datepicker" required>
+        </div>
     </div>
 
 	<div class="row">
-		<div class="form-group col-md-3 col-xs-10">
+	    <div class="caption">
+		
+		<div class="form-group col-md-2 col-xs-3">
 			<label for="animal_especie" class="control-label">Especie</label>
 			<select name="animal_especie" id="animal_especie" class="form-control select2-default" required>
 				@foreach( App\Models\Especies::getEspecies() as $key => $value)
 					<option value="{{ $key }}"<%- animal_especie == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
 			</select>
-				<div class="form-group col-md-1 col-xs-2 text-right">
-			<div>&nbsp;</div>
-			<button type="button" class="btn btn-default btn-flat btn-sm btn-add-resource-koi-component" data-resource="especie" data-field="animal_especie">
+			</div>
+     
+			<div class="form-group col-md-1 col-xs-1 text-right">
+			   <div>&nbsp;</div>
+			  <button type="button" class="btn btn-default btn-flat btn-sm btn-add-resource-koi-component" data-resource="especie" data-field="animal_especie">
 				<i class="fa fa-plus"></i>
-			</button>
+		</button>
 		</div>
-		</div>
-            <div class="form-group col-md-3 col-xs-10">
+      </div>
+	
+	
+	    <div class="caption">
+		<div class="form-group col-md-2 col-xs-3">
 			<label for="animal_raza" class="control-label">Raza</label>
 			<select name="animal_raza" id="animal_raza" class="form-control select2-default" required>
 				@foreach( App\Models\Razas::getRazas() as $key => $value)
 					<option value="{{ $key }}" <%- animal_raza == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
-			</select>
-				<div class="form-group col-md-1 col-xs-2 text-right">
+				</select>
+			</div>
+    
+				<div class="form-group col-md-1 col-xs-1 text-right">
 			<div>&nbsp;</div>
 			<button type="button" class="btn btn-default btn-flat btn-sm btn-add-resource-koi-component" data-resource="raza" data-field="animal_raza">
 				<i class="fa fa-plus"></i>
 			</button>
 		</div>
 		</div>
-		 <div class="form-group col-md-3 col-xs-10">
+		
+
+
+		<div class="caption">
+		<div class="form-group col-md-2 col-xs-3">
 			<label for="animal_lote" class="control-label">Lote</label>
 			<select name="animal_lote" id="animal_lote" class="form-control select2-default" required>
 				@foreach( App\Models\Lote::getLotes() as $key => $value)
 					<option value="{{ $key }}" <%- animal_lote == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
 			</select>
-				<div class="form-group col-md-1 col-xs-2 text-right">
+		</div>
+     
+				<div class="form-group col-md-1 col-xs-1 text-right">
 			<div>&nbsp;</div>
 			<button type="button" class="btn btn-default btn-flat btn-sm btn-add-resource-koi-component" data-resource="lote" data-field="animal_lote">
 				<i class="fa fa-plus"></i>
 			</button>
 		</div>
 		</div>
-        <div class="form-group col-sm-2">
-            <label for="animal_nacimiento" class="col-sm-1 control-label">Fecha</label>
-                <input type="text" id="animal_nacimiento" name="animal_nacimiento" placeholder="Fecha" value="<%- animal_nacimiento %>" class="form-control input-sm datepicker" required>
         </div>
-    </div>
+    
+
+
+
     <div class="row">
 		<div class="form-group col-md-3">
 			<label for="animal_pedigree" class="control-label">Pedigree</label>
@@ -212,7 +236,11 @@
 			<label for="animal_madre" class="control-label">Madre</label>
 			<input type="text" id="animal_madre" name="animal_madre" value="<%- animal_madre %>" placeholder="Madre" class="form-control input-sm input-toupper" maxlength="200">
 		</div>
-		<div class="form-group col-md-3">
+		
+		
+    </div>
+    <div class="row">
+    <div class="form-group col-md-3">
 			<label for="animal_peso_nacido" class="control-label">Peso nacido</label>
 			<input type="text" id="animal_peso_nacido" name="animal_peso_nacido" value="<%- animal_peso_nacido %>" placeholder="Peso nacido" class="form-control input-sm input-toupper" maxlength="200">
 		</div>
@@ -220,21 +248,17 @@
 			<label for="animal_indice_corporal" class="control-label">Peso indice corporal</label>
 			<input type="text" id="animal_indice_corporal" name="animal_indice_corporal" value="<%- animal_indice_corporal %>" placeholder="Peso indice corporal" class="form-control input-sm input-toupper" maxlength="200">
 		</div>
-    </div>
-    <div class="row">
-		<div class="form-group col-md-2 col-xs-8 col-sm-3">
-			<br><label class="checkbox-inline" for="animal_macho">
-				<input type="checkbox" id="animal_macho" name="animal_macho" value="animal_macho" <%- animal_macho ? 'checked': ''%>> Macho
-			</label>
-		</div>
-		<div class="form-group col-md-2 col-xs-8 col-sm-3">
-			<br><label class="checkbox-inline" for="animal_activo">
-				<input type="checkbox" id="animal_activo" name="animal_activo" value="animal_activo" <%- animal_activo ? 'checked': ''%>> Activo
-			</label>
-		</div>
-	
-    </div>
 
+         <div class="form-group col-md-3">
+         <label for="animal_macho" class="control-label">sexo</label>
+         <select name="animal_macho" id="animal_macho" class="form-control select2-default" required>
+         <option value="0"> Macho </option>
+         <option value="1"> Hembra </option>
 
+        </div>
+        
+        
+     </div>
 
-</script>
+     
+  </script>

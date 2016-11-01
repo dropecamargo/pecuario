@@ -14,7 +14,7 @@ defaults:{
 'animal_especie':'',
 'animal_raza': '',
 'animal_pedigree':'',
-'animal_macho':true,
+'animal_macho':'',
 'animal_nacimiento': moment().format('YYYY-MM-DD'),
 'animal_peso_nacido':'',
 'animal_padre':'',

@@ -13,8 +13,8 @@ class Animal extends BaseModel
 	   protected $table = "animal";
 	   public $timestamps = false;
 
-    protected $fillable = ['animal_numero','animal_nombre','animal_pedigree','animal_padre','animal_madre','animal_indice_corporal','animal_observaciones','animal_rdfi','animal_raza','animal_lote','animal_especie','animal_nacimiento','animal_foto'];
-    protected $boolean = ['animal_activo','animal_macho'];
+    protected $fillable = ['animal_numero','animal_nombre','animal_pedigree','animal_padre','animal_madre','animal_indice_corporal','animal_observaciones','animal_rdfi','animal_raza','animal_lote','animal_especie','animal_nacimiento','animal_foto','animal_macho'];
+    protected $boolean = ['animal_activo'];
 
     public function setPathAttribute($path){
         $this->attributes['animal_foto'] = $path->getClienteOriginalName();
@@ -66,6 +66,8 @@ class Animal extends BaseModel
         $query->where('animal.id', $id);
         return $query->first();
     }
+
+    
 
 
 }
