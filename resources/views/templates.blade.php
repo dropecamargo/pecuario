@@ -159,6 +159,12 @@
 					<option value="{{ $key }}"<%- animal_especie == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
 			</select>
+				<div class="form-group col-md-1 col-xs-2 text-right">
+			<div>&nbsp;</div>
+			<button type="button" class="btn btn-default btn-flat btn-sm btn-add-resource-koi-component" data-resource="especie" data-field="animal_especie">
+				<i class="fa fa-plus"></i>
+			</button>
+		</div>
 		</div>
             <div class="form-group col-md-3 col-xs-10">
 			<label for="animal_raza" class="control-label">Raza</label>
@@ -167,6 +173,12 @@
 					<option value="{{ $key }}" <%- animal_raza == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
 			</select>
+				<div class="form-group col-md-1 col-xs-2 text-right">
+			<div>&nbsp;</div>
+			<button type="button" class="btn btn-default btn-flat btn-sm btn-add-resource-koi-component" data-resource="raza" data-field="animal_raza">
+				<i class="fa fa-plus"></i>
+			</button>
+		</div>
 		</div>
 		 <div class="form-group col-md-3 col-xs-10">
 			<label for="animal_lote" class="control-label">Lote</label>
@@ -175,6 +187,12 @@
 					<option value="{{ $key }}" <%- animal_lote == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
 			</select>
+				<div class="form-group col-md-1 col-xs-2 text-right">
+			<div>&nbsp;</div>
+			<button type="button" class="btn btn-default btn-flat btn-sm btn-add-resource-koi-component" data-resource="lote" data-field="animal_lote">
+				<i class="fa fa-plus"></i>
+			</button>
+		</div>
 		</div>
         <div class="form-group col-sm-2">
             <label for="animal_nacimiento" class="col-sm-1 control-label">Fecha</label>
@@ -214,12 +232,7 @@
 				<input type="checkbox" id="animal_activo" name="animal_activo" value="animal_activo" <%- animal_activo ? 'checked': ''%>> Activo
 			</label>
 		</div>
-		<div class="form-group">
-              <label class="col-md-4 control-label">Nuevo Archivo</label>
-              <div class="col-md-6">
-              <input type="file" class="form-control" name="animal_foto" id="animal_foto" >
-            </div>
-        </div>
+	
     </div>
 
 

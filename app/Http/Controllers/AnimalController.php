@@ -77,7 +77,8 @@ class AnimalController extends Controller
         if ($request->ajax()) {
             return response()->json($animal);    
         }        
-        return view('animal.show', ['animal' => $animal]);   
+        // return view('animal.show', ['animal' => $animal]);   
+        return dd($animal);
     }
 
     /**
