@@ -15,7 +15,7 @@ class AnimalTable extends Migration
         Schema::create('animal', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->increments('animal_id');
+            $table->increments('id');
             $table->string('animal_numero', 10);
             $table->string('animal_nombre');
             $table->integer('animal_especie')->unsigned();
@@ -23,6 +23,8 @@ class AnimalTable extends Migration
             $table->string('animal_pedigree',5);
             $table->boolean('animal_macho');
             $table->date('animal_nacimiento');
+            $table->date('animal_destete');
+            $table->date('animal_ingreso');
             $table->float('animal_peso_nacido');
             $table->integer('animal_padre');
             $table->integer('animal_madre');
