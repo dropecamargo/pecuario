@@ -27,6 +27,7 @@ elixir(function(mix) {
 		paths.libs + 'font-awesome/css/font-awesome.min.css',
 		paths.libs + 'datatables.net-bs/css/dataTables.bootstrap.css',
 		paths.libs + 'datatables.net-buttons-bs/css/buttons.bootstrap.min.css',
+        paths.libs + 'Jcrop/css/Jcrop.min.css',
     ], 'public/css/vendor.min.css');
 });
 
@@ -53,6 +54,7 @@ elixir(function(mix) {
         paths.libs + 'moment/moment.js',
         paths.libs + 'moment/locale/es.js',
         paths.libs + 'alertify.js/dist/js/alertify.js',
+        paths.libs + 'Jcrop/js/Jcrop.min.js',
     ], 'public/js/vendor.min.js')
     .scripts([
         'models/*.js',

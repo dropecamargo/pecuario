@@ -11,6 +11,7 @@
                 <table id="especies-search-table" class="table table-bordered table-striped" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+                            <th>Codigo</th>
                             <th>Nombre</th>
                             <th>Activa</th>
                         </tr>

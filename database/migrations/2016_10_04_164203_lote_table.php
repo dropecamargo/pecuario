@@ -37,6 +37,6 @@ class LoteTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Lote');
+        Schema::drop('lote');
     }
 }
