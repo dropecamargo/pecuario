@@ -1,4 +1,3 @@
-
 app || (app = {});
 
 (function ($, window, document, undefined) {

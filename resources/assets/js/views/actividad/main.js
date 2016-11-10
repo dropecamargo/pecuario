@@ -1,14 +1,10 @@
 app || (app = {});
 
-(function ($, window, document, undefined) {
-
-    app.MainActividadView = Backbone.View.extend({
+(function($, window, document, undefined){
+ app.MainActividadView = Backbone.View.extend({
 
         el: '#actividad-main',
 
-        /**
-        * Constructor Method
-        */
         initialize : function() {
 
             this.$actividadSearchTable = this.$('#actividad-search-table');
@@ -36,7 +32,7 @@ app || (app = {});
                     }
                 ],
                 columnDefs: [
-                    {
+                {
                         targets: 0,
                         width: "10%",
                         render: function( data, type, full, row ){
@@ -54,5 +50,4 @@ app || (app = {});
             });
         }
     });
-
 })(jQuery, this, this.document);

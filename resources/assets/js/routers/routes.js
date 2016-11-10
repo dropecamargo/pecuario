@@ -250,34 +250,34 @@ app || (app = {});
         },
       //Modulo Actividad
 
-        getActividadMain: function(){
-           if (this.mainActividadView instanceof Backbone.View){
-               this.mainActividadView.stopListening();
-               this.mainActividadView.undelegateEvents();
-           }
-           this.mainActividadView = new app.MainActividadView();
-       },
+       getActividadMain: function(){
+            if (this.mainActividadView instanceof Backbone.View){
+                this.mainActividadView.stopListening();
+                this.mainActividadView.undelegateEvents();
+            }
+            this.mainActividadView = new app.MainActividadView();
+        },
 
         getActividadCreate: function(){
-           this.ActividadModel = new app.ActividadModel();
-           if(this.createActividadView instanceof Backbone.View){
-               this.createActividadView.stopListening();
-               this.createActividadView.undelegateEvents();
-           }
-           this.createActividadView = new app.CreateActividadView({ model: this.actividadModel, parameters: { callback: "toShow" } });
-           this.createActividadView.render();
-       },
+            this.actividadModel = new app.ActividadModel();
+            if(this.createActividadView instanceof Backbone.View){
+                this.createActividadView.stopListening();
+                this.createActividadView.undelegateEvents();
+            }
+            this.createActividadView = new app.CreateActividadView({ model: this.actividadModel, parameters: { callback: "toShow" } });
+            this.createActividadView.render();
+        },
 
-       getActividadEdit: function(actividad){
-           this.actividadModel = new app.ActividadModel();
-           this.actividadModel.set({'id': actividad},{silent: true});
-               if( this.createActividadView instanceof Backbone.View){
-                   this.createActividadView.stopListening();
-                   this.createActividadView.undelegateEvents();
-               }
-               this.createActividadView = new app.CreateActividadView({ model: this.actividadModel, parameters: {callback: 'toShow'}});
-               this.actividadModel.fetch();
-       },
+        getActividadEdit: function(actividad){
+            this.actividadModel = new app.RazasModel();
+            this.actividadModel.set({'id': actividad},{silent: true});
+                if( this.createActividadView instanceof Backbone.View){
+                    this.createActividadView.stopListening();
+                    this.createActividadView.undelegateEvents();
+                }
+                this.createActividadView = new app.CreateActividadView({ model: this.actividadModel, parameters: {callback: 'toShow'}});
+                this.actividadModel.fetch();
+        },
         //Modulo Peso
 
         getPesoMain: function(){

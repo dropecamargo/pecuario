@@ -12,7 +12,7 @@
                     <thead>
                         <tr>
                             <td>Codigo</td>
-                            <th>actividad</th>
+                            <th>Nombre</th>
                             <th>Activa</th>
                         </tr>
                     </thead>

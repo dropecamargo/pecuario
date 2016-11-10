@@ -30,6 +30,6 @@ class HatoTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Hato');
+        Schema::drop('hato');
     }
 }

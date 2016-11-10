@@ -18,7 +18,8 @@ class Actividad extends BaseModel
 
     public function isValid($data){
     	$rules = [
-    		'actividad_nombre' => '|min:3|max:15',
+    		'actividad_nombre' => '',
+            'actividad_activa' => ''
     	];
 
     	$validator = Validator::make($data, $rules);
