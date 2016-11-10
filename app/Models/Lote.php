@@ -13,17 +13,17 @@ class Lote extends BaseModel
 protected $table = "lote";
 public $timestamps = false;
 
-protected $fillable = ['lote_nombre','lote_descripcion','lote_color','lote_superficie','lote_hato','lote_alerta_sin_pesaje','lote_alerta_peso_inferior','lote_alerta_peso_superior'];
+protected $fillable = ['lote_nombre','lote_descripcion','lote_superficie','lote_hato','lote_alerta_sin_pesaje','lote_alerta_peso_inferior','lote_alerta_peso_superior'];
 protected $boolean = ['lote_activo'];
 
 public function isValid($data){
 $rules = [
 'lote_nombre' => 'required|max:40',
-'lote_descripcion' => 'required',
-'lote_color' => 'required|min:3|max:15',
-'lote_superficie' => 'required|min:3|max:15',
-'lote_alerta_peso_inferior' => 'required',
-'lote_alerta_peso_superior' => 'required'
+'lote_descripcion' => '',
+
+'lote_superficie' => '|min:3|max:15',
+'lote_alerta_peso_inferior' => '',
+'lote_alerta_peso_superior' => ''
 ];
 
 $validator = Validator::make($data, $rules);
@@ -49,4 +49,5 @@ $validator = Validator::make($data, $rules);
         $collection->prepend('', '');
         return $collection;
     }
+    
 }

@@ -14,7 +14,6 @@
                             <th>Codigo</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
-                            <th>Color</th>
                             <th>Activa</th>
                         </tr>
                     </thead>

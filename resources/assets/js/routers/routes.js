@@ -36,7 +36,24 @@ app || (app = {});
             //Rutas Modulo Animal
             'animal(/)': 'getAnimalMain',
             'animal/create(/)': 'getAnimalCreate',
-            'animal/:animal/edit(/)': 'getAnimalEdit'
+            'animal/:animal/edit(/)': 'getAnimalEdit',
+
+            //Rutas Modulo Actividad
+            'actividad(/)': 'getActividadMain',
+            'actividad/create(/)': 'getActividadCreate',
+            'actividad/:actividad/edit(/)': 'getActividadEdit',
+
+            //Rutas Modulo Peso
+            'peso(/)': 'getPesoMain',
+            'peso/create(/)': 'getPesoCreate',
+            'peso/:peso/edit(/)': 'getPesoEdit',
+
+            //Rutas Modulo Sanidad
+            'sanidad(/)': 'getSanidadMain',
+            'sanidad/create(/)': 'getSanidadCreate',
+            'sanidad/:sanidad/edit(/)': 'getSanidadEdit'
+
+
 
         },
 
@@ -230,7 +247,97 @@ app || (app = {});
                 }
                 this.createAnimalView = new app.CreateAnimalView({ model: this.animalModel, parameters: {callback: 'toShow'}});
                 this.animalModel.fetch();
-        }
+        },
+      //Modulo Actividad
+
+        getActividadMain: function(){
+           if (this.mainActividadView instanceof Backbone.View){
+               this.mainActividadView.stopListening();
+               this.mainActividadView.undelegateEvents();
+           }
+           this.mainActividadView = new app.MainActividadView();
+       },
+
+        getActividadCreate: function(){
+           this.ActividadModel = new app.ActividadModel();
+           if(this.createActividadView instanceof Backbone.View){
+               this.createActividadView.stopListening();
+               this.createActividadView.undelegateEvents();
+           }
+           this.createActividadView = new app.CreateActividadView({ model: this.actividadModel, parameters: { callback: "toShow" } });
+           this.createActividadView.render();
+       },
+
+       getActividadEdit: function(actividad){
+           this.actividadModel = new app.ActividadModel();
+           this.actividadModel.set({'id': actividad},{silent: true});
+               if( this.createActividadView instanceof Backbone.View){
+                   this.createActividadView.stopListening();
+                   this.createActividadView.undelegateEvents();
+               }
+               this.createActividadView = new app.CreateActividadView({ model: this.actividadModel, parameters: {callback: 'toShow'}});
+               this.actividadModel.fetch();
+       },
+        //Modulo Peso
+
+        getPesoMain: function(){
+           if (this.mainPesoView instanceof Backbone.View){
+               this.mainPesoView.stopListening();
+               this.mainPesoView.undelegateEvents();
+           }
+           this.mainPesoView = new app.MainPesoView();
+       },
+
+        getPesoCreate: function(){
+           this.pesoModel = new app.PesoModel();
+           if(this.createPesoView instanceof Backbone.View){
+               this.createPesoView.stopListening();
+               this.createPesoView.undelegateEvents();
+           }
+           this.createPesoView = new app.CreatePesoView({ model: this.pesoModel, parameters: { callback: "toShow" } });
+           this.createPesoView.render();
+       },
+
+       getPesoEdit: function(peso){
+           this.PesoModel = new app.PesoModel();
+           this.PesoModel.set({'id': peso},{silent: true});
+               if( this.createPesoView instanceof Backbone.View){
+                   this.createPesoView.stopListening();
+                   this.createPesoView.undelegateEvents();
+               }
+               this.createPesoView = new app.CreatePesoView({ model: this.pesoModel, parameters: {callback: 'toShow'}});
+               this.pesoModel.fetch();
+       },
+        //Modulo Sanidad
+
+        getSanidadMain: function(){
+           if (this.mainSanidadView instanceof Backbone.View){
+               this.mainSanidadView.stopListening();
+               this.mainSanidadView.undelegateEvents();
+           }
+           this.mainSanidadView = new app.MainSanidadView();
+       },
+
+        getSanidadCreate: function(){
+           this.sanidadModel = new app.SanidadModel();
+           if(this.createSanidadView instanceof Backbone.View){
+               this.createSanidadView.stopListening();
+               this.createSanidadView.undelegateEvents();
+           }
+           this.createSanidadView = new app.CreateSanidadView({ model: this.sanidadModel, parameters: { callback: "toShow" } });
+           this.createSanidadView.render();
+       },
+
+       getSanidadEdit: function(Sanidad){
+           this.SanidadModel = new app.SanidadModel();
+           this.SanidadModel.set({'id': sanidad},{silent: true});
+               if( this.createSanidadView instanceof Backbone.View){
+                   this.createSanidadView.stopListening();
+                   this.createSanidadView.undelegateEvents();
+               }
+               this.createSanidadView = new app.CreateSanidadView({ model: this.sanidadModel, parameters: {callback: 'toShow'}});
+               this.sanidadModel.fetch();
+       }
 
     }));
 

@@ -68,6 +68,14 @@ app || (app = {});
                         var template = _.template($('#add-lote-tpl').html());
                         _this.$modalComponent.find('.content-modal').html( template(_this.model.toJSON()) );
                     },
+                    
+                    'animal' : function() {
+                        _this.$modalComponent.find('.inner-title-modal').html('Animal');
+
+                        _this.model = new app.AnimalModel();
+                        var template = _.template($('#add-animal-tpl').html());
+                        _this.$modalComponent.find('.content-modal').html( template(_this.model.toJSON()) );
+                    },
                 };
 
             if (stuffToDo[this.resource]) {
@@ -161,6 +169,15 @@ app || (app = {});
 
                     'lote' : function() {
                         _this.$resourceField.select2({ data: [{id: _this.model.get('id'), text: _this.model.get('lote_nombre')}] }).trigger('change');
+                        _this.$resourceField.val(_this.model.get('id')).trigger('change');
+                    },
+                      'sanidad' : function() {
+                        _this.$resourceField.select2({ data: [{id: _this.model.get('id'), text: _this.model.get('sanidad_nombre')}] }).trigger('change');
+                        _this.$resourceField.val(_this.model.get('id')).trigger('change');
+                    },
+                      
+                      'animal' : function() {
+                        _this.$resourceField.select2({ data: [{id: _this.model.get('id'), text: _this.model.get('animal_nombre')}] }).trigger('change');
                         _this.$resourceField.val(_this.model.get('id')).trigger('change');
                     },
                 };

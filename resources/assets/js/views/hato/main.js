@@ -21,7 +21,6 @@ app || (app = {});
                     { data: 'id', name: 'id'},
                     { data: 'hato_nombre', name: 'hato_nombre' },
                     { data: 'hato_descripcion', name: 'hato_descripcion' },
-                    { data: 'hato_color', name: 'hato_color'},
                     { data: 'hato_activo', name: 'hato_activo'}
                 ],
                 buttons: [
@@ -42,7 +41,7 @@ app || (app = {});
                         }
                     },
                     {
-                        targets: 4,
+                        targets: 3,
                         width: '10%',
                         render: function ( data, type, full, row ) {
                             return data ? 'Si' : 'No';

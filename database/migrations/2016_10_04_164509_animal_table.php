@@ -23,6 +23,8 @@ class AnimalTable extends Migration
             $table->string('animal_pedigree',5);
             $table->boolean('animal_macho');
             $table->date('animal_nacimiento');
+            $table->date('animal_destete');
+            $table->date('animal_ingreso');
             $table->float('animal_peso_nacido');
             $table->integer('animal_padre');
             $table->integer('animal_madre');

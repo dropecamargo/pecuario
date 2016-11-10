@@ -18,7 +18,7 @@ class Razas extends BaseModel
 
     public function isValid($data){
     	$rules = [
-    		'raza_nombre' => 'required|min:3|max:15',
+    		'raza_nombre' => '|min:3|max:15',
     	];
 
     	$validator = Validator::make($data, $rules);

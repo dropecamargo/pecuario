@@ -21,7 +21,6 @@ app || (app = {});
                     { data: 'id', name: 'id'},
                     { data: 'lote_nombre', name: 'lote_nombre' },
                     { data: 'lote_descripcion', name: 'lote_descripcion' },
-                    { data: 'lote_color', name: 'lote_color'},
                     { data: 'lote_activo', name: 'lote_activo'}
                 ],
                 buttons: [
@@ -42,7 +41,7 @@ app || (app = {});
                         }
                     },
                     {
-                        targets: 4,
+                        targets: 3,
                         width: '10%',
                         render: function ( data, type, full, row ) {
                             return data ? 'Si' : 'No';

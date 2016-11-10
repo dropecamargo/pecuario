@@ -16,6 +16,8 @@ defaults:{
 'animal_pedigree':'',
 'animal_macho':'',
 'animal_nacimiento': moment().format('YYYY-MM-DD'),
+'animal_destete': moment().format('YYYY-MM-DD'),
+'animal_ingreso': moment().format('YYYY-MM-DD'),
 'animal_peso_nacido':'',
 'animal_padre':'',
 'animal_madre': '',
@@ -24,7 +26,7 @@ defaults:{
 'animal_observaciones':'',
 'animal_rdfi':'',
 'animal_activo':true,
-'animal_foto':''
+
 
 }
 });

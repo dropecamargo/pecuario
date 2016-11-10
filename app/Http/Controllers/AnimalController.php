@@ -74,6 +74,7 @@ class AnimalController extends Controller
     public function show($id,request $request)
     {
         $animal = Animal::getAnimal($id);
+        
         if ($request->ajax()) {
             return response()->json($animal);    
         }        

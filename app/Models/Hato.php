@@ -19,7 +19,7 @@ class Hato extends BaseModel
 	public function isValid($data){
 		$rules = [
 			'hato_nombre' => 'required|min:3|max:15',
-			'hato_descripcion' => 'required'
+			'hato_descripcion' => ''
 		];
 		
 		$validator = Validator::make($data, $rules);

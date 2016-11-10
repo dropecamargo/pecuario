@@ -39,14 +39,11 @@
 			<label for="hato_nombre" class="control-label">Nombre</label>
 			<input type="text" id="hato_nombre" name="hato_nombre" value="<%- hato_nombre %>" placeholder="Nombre" class="form-control input-sm input-toupper" maxlength="200" required>
 		</div>
-		<div class="form-group col-md-3">
-			<label for="hato_color" class="control-label">Color</label>
-			<input type="text" id="hato_color" name="hato_color" value="<%- hato_color %>" placeholder="Color" class="form-control input-sm input-toupper" maxlength="20" required>
-		</div>
+		
     </div>
 
 	<div class="row">
-		<div class="form-group col-md-12">
+		<div class="form-group col-md-7">
 			<label for="hato_descripcion" class="control-label">Descripcion</label>
 			<input type="text" id="hato_descripcion" name="hato_descripcion" value="<%- hato_descripcion %>" placeholder="Descripcion" class="form-control input-sm input-toupper" maxlength="200">
 		</div>
@@ -67,10 +64,7 @@
 			<label for="lote_nombre" class="control-label">Nombre</label>
 			<input type="text" id="lote_nombre" name="lote_nombre" value="<%- lote_nombre %>" placeholder="Nombre" class="form-control input-sm input-toupper" maxlength="200" required>
 		</div>
-		<div class="form-group col-md-3">
-			<label for="lote_color" class="control-label">Color</label>
-			<input type="text" id="lote_color" name="lote_color" value="<%- lote_color %>" placeholder="Centro" class="form-control input-sm input-toupper" maxlength="20" required>
-		</div>
+		
     </div>
 
 	<div class="row">
@@ -134,11 +128,12 @@
     <div class="row">
        <div class="form-group col-md-2">
 			<label for="animal_numero" class="control-label">Numero</label>
-			<input type="text" id="animal_numero" name="animal_numero" value="<%- animal_numero %>" placeholder="Numero" class="form-control input-sm input-toupper" maxlength="20" required>
+			<input type="text" id="animal_numero" name="animal_numero" value="<%- animal_numero %>" placeholder="Numero" class="form-control input-sm input-toupper" maxlength="20" >
+
 		</div>
-		<div class="form-group col-md-2">
+		<div class="form-group col-md-1">
 			<label for="animal_rdfi" class="control-label">RDFI</label>
-			<input type="text" id="animal_rdfi" name="animal_rdfi" value="<%- animal_rdfi %>" placeholder="RDFI" class="form-control input-sm input-toupper" maxlength="200" required>
+			<input type="text" id="animal_rdfi" name="animal_rdfi" value="<%- animal_rdfi %>" placeholder="RDFI" class="form-control input-sm input-toupper" maxlength="200" >
 		</div>
 		<div class="form-group col-md-3">
 			<label for="animal_nombre" class="control-label">Nombre</label>
@@ -149,14 +144,25 @@
 				<input type="checkbox" id="animal_activo" name="animal_activo" value="animal_activo" <%- animal_activo ? 'checked': ''%>> Activo
 			</label>
 		</div>
-		
+		</div>
+		<div class="row">
 		<div class="form-group col-md-7">
 			<label for="animal_observaciones" class="control-label">Observaciones</label>
-			<input type="text" id="animal_observaciones" name="animal_observaciones" value="<%- animal_observaciones %>" placeholder="Observaciones" class="form-control input-sm input-toupper" maxlength="200" required>
+			<input type="text" id="animal_observaciones" name="animal_observaciones" value="<%- animal_observaciones %>" placeholder="Observaciones" class="form-control input-sm input-toupper" maxlength="200" >
 		</div>
+		</div>
+		<div class="row">
 		 <div class="form-group col-sm-2">
-            <label for="animal_nacimiento" class="col-sm-1 control-label">Fecha</label>
-                <input type="text" id="animal_nacimiento" name="animal_nacimiento" placeholder="Fecha" value="<%- animal_nacimiento %>" class="form-control input-sm datepicker" required>
+            <label for="animal_nacimiento" class="col-sm-1 control-label">Fecha Nacimiento</label>
+                <input type="text" id="animal_nacimiento" name="animal_nacimiento" placeholder="Fecha Nacimiento" value="<%- animal_nacimiento %>" class="form-control input-sm datepicker" >
+        </div>
+        <div class="form-group col-sm-2">
+            <label for="animal_destete" class="col-sm-1 control-label">Fecha Destete</label>
+                <input type="text" id="animal_destete" name="animal_destete" placeholder="Fecha Destete" value="<%- animal_destete %>" class="form-control input-sm datepicker" >
+        </div>
+        <div class="form-group col-sm-2">
+            <label for="animal_ingreso" class="col-sm-1 control-label">Fecha Ingreso</label>
+                <input type="text" id="animal_ingreso" name="animal_ingreso" placeholder="Fecha Ingreso" value="<%- animal_ingreso %>" class="form-control input-sm datepicker" >
         </div>
     </div>
 
@@ -165,7 +171,7 @@
 		
 		<div class="form-group col-md-2 col-xs-3">
 			<label for="animal_especie" class="control-label">Especie</label>
-			<select name="animal_especie" id="animal_especie" class="form-control select2-default" required>
+			<select name="animal_especie" id="animal_especie" class="form-control select2-default" >
 				@foreach( App\Models\Especies::getEspecies() as $key => $value)
 					<option value="{{ $key }}"<%- animal_especie == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
@@ -184,7 +190,7 @@
 	    <div class="caption">
 		<div class="form-group col-md-2 col-xs-3">
 			<label for="animal_raza" class="control-label">Raza</label>
-			<select name="animal_raza" id="animal_raza" class="form-control select2-default" required>
+			<select name="animal_raza" id="animal_raza" class="form-control select2-default" >
 				@foreach( App\Models\Razas::getRazas() as $key => $value)
 					<option value="{{ $key }}" <%- animal_raza == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
@@ -204,7 +210,7 @@
 		<div class="caption">
 		<div class="form-group col-md-2 col-xs-3">
 			<label for="animal_lote" class="control-label">Lote</label>
-			<select name="animal_lote" id="animal_lote" class="form-control select2-default" required>
+			<select name="animal_lote" id="animal_lote" class="form-control select2-default" >
 				@foreach( App\Models\Lote::getLotes() as $key => $value)
 					<option value="{{ $key }}" <%- animal_lote == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
@@ -251,14 +257,77 @@
 
          <div class="form-group col-md-3">
          <label for="animal_macho" class="control-label">sexo</label>
-         <select name="animal_macho" id="animal_macho" class="form-control select2-default" required>
+         <select name="animal_macho" id="animal_macho" class="form-control select2-default" >
          <option value="0"> Macho </option>
          <option value="1"> Hembra </option>
 
-        </div>
-        
-        
-     </div>
-
-     
+        </div>     
+      </div>
   </script>
+<script type="text/template" id="add-actividad-tpl">
+    <div class="row">
+		<div class="form-group col-md-7">
+			<label for="actividad_nombre" class="control-label">Nombre</label>
+			<input type="text" id="actividad_nombre" name="actividad_nombre" value="<%- actividad_nombre %>" placeholder="Nombre" class="form-control input-sm input-toupper" maxlength="200" required>
+		</div>
+    </div>
+
+	<div class="row">
+		<div class="form-group col-md-2 col-xs-8 col-sm-3">
+			<br><label class="checkbox-inline" for="raza_activa">
+				<input type="checkbox" id="actividad_activo" name="actividad_activo" value="actividad_activo" <%- actividad_activo ? 'checked': ''%>> Activa
+			</label>
+		</div>
+    </div>
+</script>
+ <script type="text/template" id="add-peso-tpl">
+    <div class="row">
+     <div class="form-group col-md-2 col-xs-3">
+			<label for="peso_animal" class="control-label">Animal</label>
+			<select name="peso_animal" id="peso_animal" class="form-control select2-default" >
+				@foreach( App\Models\Animal::getAnimalName() as $key => $value)
+					<option value="{{ $key }}"<%- peso_animal == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
+				@endforeach
+			</select>
+		</div>
+         <div class="form-group col-md-2 col-xs-3">
+		<label for="peso_lote" class="control-label">Lote de animal</label>
+
+         <button class="btn btn-primary" type="button">
+
+
+        {{ $value }}
+         
+
+
+
+
+
+          <span class="badge"></span>
+         </button>
+        </div>
+		<div class="form-group col-md-2 col-xs-3">
+			<label for="peso_lote" class="control-label">Cambio de Lote</label>
+			<select name="peso_lote" id="peso_lote" class="form-control select2-default" >
+				@foreach( App\Models\Lote::getLotes() as $key => $value)
+					<option value="{{ $key }}"<%- peso_lote == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
+				@endforeach
+			</select>
+		</div>
+		<div class="form-group col-sm-2">
+            <label for="peso_fecha" class="col-sm-1 control-label">Fecha</label>
+                <input type="text" id="peso_fecha" name="peso_fecha" placeholder="Fecha Ingreso" value="<%- peso_fecha %>" class="form-control input-sm datepicker" >
+        </div>
+     </div>
+     <div class="row">
+		<div class="form-group col-md-6">
+			<label for="peso_observaciones" class="control-label">Observaciones</label>
+			<input type="text" id="peso_observaciones" name="peso_observaciones" value="<%- peso_observaciones %>" placeholder="Observaciones" class="form-control input-sm input-toupper" maxlength="200" >
+		</div>
+		</div>
+ </script>
+ <script type="text/template" id="add-actividad-tpl">
+   <div class="row">
+
+   </div>
+ </script>

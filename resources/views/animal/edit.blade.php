@@ -10,6 +10,9 @@
 	<div class="box box-success" id="animal-create">
 	 	{!! Form::open(['id' => 'form-animal', 'data-toggle' => 'validator']) !!}			
 	        <div class="box-header with-border">
+	        	<div class="box-body" id="render-form-animal">
+				{{-- Render form animal --}}
+			</div>
 	        	<div class="row">
 					<div class="col-md-2 col-sm-6 col-xs-6 text-left">
 						<a href="{{ route('animal.show', ['animal' => $animal->id]) }}" class="btn btn-default btn-sm btn-block">{{ trans('app.cancel') }}</a>

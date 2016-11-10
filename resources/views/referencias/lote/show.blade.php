@@ -36,10 +36,6 @@
                     </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-4">
-                    <label class="control-label">Color</label>
-                    <div>{{ $lote->lote_color }}</div>
-                    </div>
                     <div class="form-group col-md-4">
                     <label class="control-label">Hato</label>
                     <div>{{ $lote->hato_nombre}}</div>

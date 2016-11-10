@@ -13,27 +13,25 @@ class Animal extends BaseModel
 	   protected $table = "animal";
 	   public $timestamps = false;
 
-    protected $fillable = ['animal_numero','animal_nombre','animal_pedigree','animal_padre','animal_madre','animal_indice_corporal','animal_observaciones','animal_rdfi','animal_raza','animal_lote','animal_especie','animal_nacimiento','animal_foto','animal_macho'];
+    protected $fillable = ['animal_numero','animal_nombre','animal_pedigree','animal_padre','animal_madre','animal_indice_corporal','animal_observaciones','animal_rdfi','animal_raza','animal_lote','animal_especie','animal_nacimiento','animal_macho','animal_ingreso','animal_destete'];
     protected $boolean = ['animal_activo'];
 
-    public function setPathAttribute($path){
-        $this->attributes['animal_foto'] = $path->getClienteOriginalName();
-        $name = $path->getClienteOriginalName();
-        \Storage::disk('local')->put($name, \File::get($path));
-    }
+    
 
     public function isValid($data){
         $rules = [
             'animal_numero' => '',
             'animal_nombre' => 'required',
             'animal_pedigree' => '',
-            'animal_padre' => 'required',
-            'animal_madre' => 'required',
-            'animal_indice_corporal' => 'required',
-            'animal_observaciones' => 'required',
-            'animal_rdfi' =>'required',
-            'animal_nacimiento' => 'required|date_format:Y-m-d',
-            'animal_foto' => 'image|mimes:jpeg,bmp,png'
+            'animal_padre' => '',
+            'animal_madre' => '',
+            'animal_indice_corporal' => '',
+            'animal_observaciones' => '',
+            'animal_rdfi' =>'',
+            'animal_nacimiento' => '|date_format:Y-m-d',
+            'animal_destete' =>'|date_format:Y-m-d',
+            'animal_ingreso'=>'|date_format:Y-m-d',
+            'animal_macho'=>''
             ];
 
     $validator = Validator::make($data, $rules);
@@ -66,8 +64,12 @@ class Animal extends BaseModel
         $query->where('animal.id', $id);
         return $query->first();
     }
-
-    
-
-
+   
+    public static function getAnimalName()
+    {
+        $query = Animal::query();
+        $collection = $query->lists('animal_nombre','id');
+        $collection->prepend('', '');
+        return $collection;
+    }
 }

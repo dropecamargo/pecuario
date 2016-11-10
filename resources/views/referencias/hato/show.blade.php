@@ -36,12 +36,7 @@
                     <div>{{ $hato->hato_descripcion }}</div>
                     </div>
             </div>
-            <div class="row">
-                <div class="form-group col-md-8">
-                    <label class="control-label">Color</label>
-                    <div>{{ $hato->hato_color }}</div>
-                    </div>
-            </div>
+            
         </div>
     </div>
 @stop

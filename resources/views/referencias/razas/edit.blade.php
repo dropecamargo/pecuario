@@ -10,6 +10,9 @@
 	<div class="box box-success" id="raza-create">
 	 	{!! Form::open(['id' => 'form-raza', 'data-toggle' => 'validator']) !!}			
 	        <div class="box-header with-border">
+	        <div class="box-body" id="render-form-raza">
+				{{-- Render form razas --}}
+			</div>
 	        	<div class="row">
 					<div class="col-md-2 col-sm-6 col-xs-6 text-left">
 						<a href="{{ route('razas.show', ['razas' => $razas->id]) }}" class="btn btn-default btn-sm btn-block">{{ trans('app.cancel') }}</a>
@@ -20,9 +23,7 @@
 				</div>
 			</div>
 
-			<div class="box-body" id="render-form-raza">
-				{{-- Render form razas --}}
-			</div>
+			
 		{!! Form::close() !!}
 	</div>
 @stop
