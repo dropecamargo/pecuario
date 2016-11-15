@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function()
 	Route::resource('actividad','ActividadController',['except' => ['destroy']]);
 	Route::resource('sanidad','SanidadController',['except' => ['destroy']]);
 	Route::resource('peso','PesoController',['except' => ['destroy']]);
+	
 });
 
 

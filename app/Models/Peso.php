@@ -22,7 +22,7 @@ class Peso extends BaseModel
             
             'peso_fecha' => '',
             'peso_observaciones' => '',
-            'peso_cambialote' => ''
+            'peso_lote' => ''
             
             
             ];
@@ -49,11 +49,15 @@ class Peso extends BaseModel
     {
         $query = Peso::query();
         $query->join('lote','peso.peso_lote','=','lote.id');
+
         $query->join('animal','peso.peso_animal','=','animal.id');
         $query->select('peso.*','animal.animal_nombre','lote.lote_nombre');
+        
         $query->where('peso.id', $id);
         return $query->first();
     }
+    
+
 
 
     

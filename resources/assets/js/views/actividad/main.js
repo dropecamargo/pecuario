@@ -1,3 +1,4 @@
+
 app || (app = {});
 
 (function($, window, document, undefined){
@@ -21,6 +22,7 @@ app || (app = {});
                     { data: 'id', name: 'id'},
                     { data: 'actividad_nombre', name: 'actividad_nombre' },
                     { data: 'actividad_activa', name: 'actividad_activa' }
+                    
                 ],
                 buttons: [
                     {

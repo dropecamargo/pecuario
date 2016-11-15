@@ -266,7 +266,7 @@
   </script>
 <script type="text/template" id="add-actividad-tpl">
     <div class="row">
-		<div class="form-group col-md-7">
+		<div class="form-group col-md-4">
 			<label for="actividad_nombre" class="control-label">Nombre</label>
 			<input type="text" id="actividad_nombre" name="actividad_nombre" value="<%- actividad_nombre %>" placeholder="Nombre" class="form-control input-sm input-toupper" maxlength="200" required>
 		</div>
@@ -274,36 +274,33 @@
 
 	<div class="row">
 		<div class="form-group col-md-2 col-xs-8 col-sm-3">
-			<br><label class="checkbox-inline" for="raza_activa">
-				<input type="checkbox" id="actividad_activo" name="actividad_activo" value="actividad_activo" <%- actividad_activo ? 'checked': ''%>> Activa
+			<br><label class="checkbox-inline" for="actividad_activa">
+				<input type="checkbox" id="actividad_activa" name="actividad_activa" value="actividad_activa" <%- actividad_activa ? 'checked': ''%>> Activa
 			</label>
 		</div>
     </div>
 </script>
- <script type="text/template" id="add-peso-tpl">
+
+<script type="text/template" id="add-peso-tpl">
     <div class="row">
      <div class="form-group col-md-2 col-xs-3">
+
 			<label for="peso_animal" class="control-label">Animal</label>
 			<select name="peso_animal" id="peso_animal" class="form-control select2-default" >
 				@foreach( App\Models\Animal::getAnimalName() as $key => $value)
-					<option value="{{ $key }}"<%- peso_animal == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
+					<option value="{{ $key }}"<%- peso_animal == '{{ $key }}' ? 'selected': ''%>>{{ $value }}
+                    
+					</option>
 				@endforeach
+
 			</select>
 		</div>
          <div class="form-group col-md-2 col-xs-3">
 		<label for="peso_lote" class="control-label">Lote de animal</label>
 
          <button class="btn btn-primary" type="button">
-
-
-        {{ $value }}
-         
-
-
-
-
-
-          <span class="badge"></span>
+         prueba de lote
+         <span class="badge"></span>
          </button>
         </div>
 		<div class="form-group col-md-2 col-xs-3">
@@ -313,6 +310,7 @@
 					<option value="{{ $key }}"<%- peso_lote == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
 			</select>
+
 		</div>
 		<div class="form-group col-sm-2">
             <label for="peso_fecha" class="col-sm-1 control-label">Fecha</label>
@@ -326,8 +324,4 @@
 		</div>
 		</div>
  </script>
- <script type="text/template" id="add-actividad-tpl">
-   <div class="row">
 
-   </div>
- </script>

@@ -29,7 +29,21 @@
                     <label class="control-label">Nombre</label>
                     <div>{{ $actividad->actividad_nombre }}</div>
             </div>
+            </div>
+            <div class="row">
+            <div class="form-group col-md-2">
+                   <label class="control-label">Activa</label>
+                   <div>
+                   @if ( $actividad->actividad_activa == 0)
+                     Activo
+                     @else
+                     No Activo
+                     @endif
+
+                   </div>
+             </div>
         </div>
 	</div>
+    </div>
 @stop
 

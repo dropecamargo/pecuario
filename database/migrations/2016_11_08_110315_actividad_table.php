@@ -18,7 +18,7 @@ class ActividadTable extends Migration
 
             $table->increments('id');
             $table->string('actividad_nombre',50);
-            $table->boolean('actividad_activo');
+            $table->boolean('actividad_activa');
 
         });
     }

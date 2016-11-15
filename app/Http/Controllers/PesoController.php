@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use DB, Log, Datatables;
-
+use App\Town;
 use App\Models\Peso;
 
 class PesoController extends Controller
@@ -25,6 +25,7 @@ class PesoController extends Controller
         }
         return view('referencias.peso.index');
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +35,14 @@ class PesoController extends Controller
     public function create()
     {
         return view('referencias.peso.create');  
-     }
+    }
+
+    
+    
+ 
+    public function postSelect(Request $request){
+        dd($request->all());
+    }
     
 
   

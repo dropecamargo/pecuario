@@ -14,7 +14,7 @@
                             <th>Codigo</th>
                             <th>Animal</th>
                             <th>Lote</th>
-                            <th>Cambialote</th>
+                            
                         </tr>
                     </thead>
                 </table>

@@ -10,7 +10,7 @@ app || (app = {});
 		idAttribute: 'id',
 		defaults:{
 			'actividad_nombre':'',
-			'actividad_activo': true
+			'actividad_activa': true
 		}
 	});
 })(this, this.document);

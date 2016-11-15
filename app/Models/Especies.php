@@ -19,7 +19,7 @@ class Especies extends BaseModel
 	public function isValid($data){
 		$rules = [
 			'especie_nombre' => 'required|min:3|max:15',
-			'especie_activa' => ''
+			
 		];
 		
 		$validator = Validator::make($data, $rules);

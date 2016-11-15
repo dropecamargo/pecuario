@@ -27,19 +27,21 @@
             <div class="row">
                 <div class="form-group col-md-8">
                     <label class="control-label">Nombre</label>
-                    <div>{{ $peso->peso_animal }}</div>
+                    <div>{{ $peso->animal_nombre }}</div>
+            </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-8">
                     <label class="control-label">Lote</label>
-                    <div>{{ $peso->peso_lote }}</div>
+                    <div>{{ $peso->lote_nombre }}</div>
             </div>
-        </div>
-        <div class="row">
+            </div>
+            <div class="row">
                 <div class="form-group col-md-8">
                     <label class="control-label">Observaciones</label>
                     <div>{{ $peso->peso_observaciones }}</div>
             </div>
         </div>
+    </div>
     </div>
 @stop

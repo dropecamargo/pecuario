@@ -69,7 +69,9 @@ class Animal extends BaseModel
     {
         $query = Animal::query();
         $collection = $query->lists('animal_nombre','id');
-        $collection->prepend('', '');
+        $collection->prepend('','');
         return $collection;
     }
+    
+   
 }

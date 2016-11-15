@@ -269,7 +269,7 @@ app || (app = {});
         },
 
         getActividadEdit: function(actividad){
-            this.actividadModel = new app.RazasModel();
+            this.actividadModel = new app.ActividadModel();
             this.actividadModel.set({'id': actividad},{silent: true});
                 if( this.createActividadView instanceof Backbone.View){
                     this.createActividadView.stopListening();

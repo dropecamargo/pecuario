@@ -25,7 +25,7 @@ app || (app = {});
                     { data: 'id', name: 'id'},
                     { data: 'animal_nombre', name: 'animal_nombre' },
                     { data: 'lote_nombre', name: 'lote_nombre' },
-                    { data: 'peso_cambialote', name: 'peso_cambialote'}
+                    
                    
                     
                     

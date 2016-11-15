@@ -8,6 +8,11 @@
 
 @section('module')
 	<div class="box box-success" id="peso-create">
+	<div class="box box-success" id="peso-create">
+			<div class="box-body" id="render-form-peso">
+				{{-- Render form peso --}}
+			</div>
+			</div>
 	 	{!! Form::open(['id' => 'form-peso', 'data-toggle' => 'validator']) !!}			
 	        <div class="box-header with-border">
 	        	<div class="row">
@@ -20,9 +25,6 @@
 				</div>
 			</div>
 
-			<div class="box-body" id="render-form-peso">
-				{{-- Render form peso --}}
-			</div>
 		{!! Form::close() !!}
 	</div>
 @stop

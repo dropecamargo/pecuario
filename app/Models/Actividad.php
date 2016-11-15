@@ -10,7 +10,7 @@ use Validator, DB;
 
 class Actividad extends BaseModel
 {
-     protected $table = "actvidad";
+     protected $table = "actividad";
     public $timestamps = false;
 
     protected $fillable = ['actividad_nombre'];
@@ -18,8 +18,8 @@ class Actividad extends BaseModel
 
     public function isValid($data){
     	$rules = [
-    		'actividad_nombre' => '',
-            'actividad_activa' => ''
+    		'actividad_nombre' => 'required',
+            
     	];
 
     	$validator = Validator::make($data, $rules);
