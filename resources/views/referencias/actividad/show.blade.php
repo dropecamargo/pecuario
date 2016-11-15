@@ -34,10 +34,10 @@
             <div class="form-group col-md-2">
                    <label class="control-label">Activa</label>
                    <div>
-                   @if ( $actividad->actividad_activa == 0)
-                     Activo
+                   @if ( $actividad->actividad_activa == 1)
+                     SI
                      @else
-                     No Activo
+                     NO
                      @endif
 
                    </div>

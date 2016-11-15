@@ -324,4 +324,70 @@
 		</div>
 		</div>
  </script>
+ <script type="text/template" id="add-sanidad-tpl">
+    <div class="row">
+           <div class="form-group col-md-2 col-xs-3">
 
+			<label for="sanidad_actividad" class="control-label">Actividad</label>
+			<select name="sanidad_actividad" id="sanidad_actividad" class="form-control select2-default" >
+				@foreach( App\Models\Actividad::getActividad() as $key => $value)
+					<option value="{{ $key }}"<%- sanidad_actividad == '{{ $key }}' ? 'selected': ''%>>{{ $value }}
+                    
+					</option>
+				@endforeach
+
+			</select>
+		    </div>
+          
+             <div class="form-group col-md-2 col-xs-3">
+
+			<label for="sanidad_animal" class="control-label">Animal</label>
+			<select name="sanidad_animal" id="sanidad_animal" class="form-control select2-default" >
+				@foreach( App\Models\Animal::getAnimalName() as $key => $value)
+					<option value="{{ $key }}"<%- sanidad_animal == '{{ $key }}' ? 'selected': ''%>>{{ $value }}
+                    
+					</option>
+				@endforeach
+
+			</select>
+		</div>
+		
+		 <div class="form-group col-md-2 col-xs-3">
+            <label for="sanidad_fecha" class="col-sm-1 control-label">Fecha</label>
+                <input type="text" id="sanidad_fecha" name="sanidad_fecha" placeholder="Sanidad Fecha" value="<%- sanidad_fecha %>" class="form-control input-sm datepicker" >
+        </div>
+       </div>
+       <div class="row">
+		<div class="form-group col-md-7 ">
+			<label for="sanidad_tratamiento" class="control-label">Tratamiento</label>
+			<input type="text" id="sanidad_tratamiento" name="sanidad_tratamiento" value="<%- sanidad_tratamiento %>" placeholder="Tratamiento" class="form-control input-sm input-toupper" maxlength="200" >
+		</div>
+		</div>
+		 <div class="row">
+		<div class="form-group col-md-7 ">
+			<label for="sanidad_comentario" class="control-label">Comentario</label>
+			<input type="text" id="sanidad_comentario" name="sanidad_comentario" value="<%- sanidad_comentario %>" placeholder="sanidad comentario" class="form-control input-sm input-toupper" maxlength="200" >
+		</div>
+		</div>
+
+        <div class="row">
+		<div class="form-group col-md-2 col-xs-3">
+			<label for="sanidad_lote" class="control-label">Lote</label>
+			<select name="sanidad_lote" id="sanidad_lote" class="form-control select2-default" >
+				@foreach( App\Models\Lote::getLotes() as $key => $value)
+					<option value="{{ $key }}"<%- sanidad_lote == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
+				@endforeach
+			</select>
+          </div>
+
+		<div class="form-group col-md-2 col-xs-8 col-sm-3">
+			<br><label class="checkbox-inline" for="sanidad_aplicalote">
+				<input type="checkbox" id="sanidad_aplicalote" name="sanidad_aplicalote" value="sanidad_aplicalote" <%- sanidad_aplicalote ? 'checked': ''%>> Aplicar En Lote
+			</label>
+			</div>
+
+
+    </div>
+
+
+ </script>
