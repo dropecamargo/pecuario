@@ -15,7 +15,7 @@ app || (app = {});
 			'sanidad_nombre':'',
 			'sanidad_tratamiento':'',
 			'sanidad_comentario':'',
-			'sanidad_aplicalote':'',
+			'sanidad_aplicalote':true,
 			'sanidad_lote':'',
 			'sanidad_cambialote':''
 		}

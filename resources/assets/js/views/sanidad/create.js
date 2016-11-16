@@ -55,6 +55,15 @@ app || (app = {});
              if( typeof window.initComponent.initDatePicker == 'function' )
                 window.initComponent.initDatePicker();
         },
+    
+
+     updatenp:function( j ) {
+  var n = parseInt( j.text(), 10 );
+  j.text( n + 1 );
+},
+
+
+
 
         loadSpinner: function (model, xhr, opts) {
             window.Misc.setSpinner( this.el );

@@ -90,7 +90,7 @@ class SanidadController extends Controller
      */
     public function edit($id)
     {
-        $sanidad = Sanidad::findOrFail($id);
+        $sanidad = Sanidad::getSanidad($id);
         return view('sanidad.edit',['sanidad' => $sanidad]);    
     }
 
@@ -106,7 +106,7 @@ class SanidadController extends Controller
         if($request->ajax()){
             $data = $request->all();
 
-            $sanidad = Sanidad::findOrFail($id);
+            $sanidad = Sanidad::getSanidad($id);
             if($sanidad->isValid($data)){
                 DB::beginTransaction();
                 try{

@@ -26,6 +26,9 @@ app || (app = {});
             this.listenTo( this.model, 'request', this.loadSpinner );
         },
 
+        
+        
+
         onStore: function (e) {
 
             if (!e.isDefaultPrevented()) {

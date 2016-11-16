@@ -23,7 +23,7 @@ class Sanidad extends BaseModel
             'sanidad_actividad' => '',
             'sanidad_animal' => '',
             'sanidad_fecha' => '|date_format:Y-m-d',
-            'sanidad_nombre' => '',
+            'sanidad_nombre' => 'required',
             'sanidad_tratamiento' => '',
             'sanidad_comentario' => '',
             'sanidad_lote' => '',
@@ -45,7 +45,8 @@ class Sanidad extends BaseModel
         
         $query->join('animal','sanidad.sanidad_animal','=','animal.id');
         $query->join('lote','sanidad.sanidad_lote','=','lote.id');
-        $query->select('sanidad.*','animal.animal_nombre','lote.lote_nombre');
+        $query->join('actividad', 'sanidad.sanidad_actividad', '=', 'actividad.id');
+        $query->select('sanidad.*','animal.animal_numero','lote.lote_nombre','actividad_nombre');
         return $query->get();
     }
 
@@ -53,13 +54,16 @@ class Sanidad extends BaseModel
 
     public static function getSanidad($id)
     {
-        $query = Animal::query();
-        $query->join('lote', 'sanidad.sanidad_animal', '=', 'lote.id');
+        $query = Sanidad::query();
+        $query->join('lote', 'sanidad.sanidad_lote', '=', 'lote.id');
+        $query->join('actividad', 'sanidad.sanidad_actividad', '=', 'actividad.id');
         $query->join('animal','sanidad.sanidad_animal','=','animal.id');
-        $query->select('sanidad.*', 'lote_nombre','animal_nombre');
+        $query->select('sanidad.*', 'lote_nombre','animal_numero','actividad_nombre');
         $query->where('sanidad.id', $id);
         return $query->first();
     }
+   
+
 
     
 

@@ -25,6 +25,7 @@ app || (app = {});
             this.listenTo( this.model, 'sync', this.responseServer );
             this.listenTo( this.model, 'request', this.loadSpinner );
         },
+        
 
         onStore: function (e) {
 

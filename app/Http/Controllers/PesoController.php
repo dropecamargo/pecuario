@@ -72,6 +72,17 @@ class PesoController extends Controller
         }    
         abort(403);   
      }
+        public function buscar_usuarios($pais,$dato="")
+        {
+
+        $usuarios= User::Busqueda($pais,$dato)->paginate(25);  
+        $paises=Pais::all();
+        $paissel=$paises->find($pais);
+        return view('listados.listado_usuarios')
+        ->with("paises", $paises )
+        ->with("paissel", $paissel )
+        ->with("usuarios", $usuarios );       
+    }
 
     /**
      * Display the specified resource.

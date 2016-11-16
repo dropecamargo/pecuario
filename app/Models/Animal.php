@@ -72,6 +72,19 @@ class Animal extends BaseModel
         $collection->prepend('','');
         return $collection;
     }
-    
+    public static function getAnimalNumber()
+    {
+        $query = Animal::query();
+        $collection = $query->lists('animal_numero','id');
+        $collection->prepend('','');
+        return $collection;
+    }
+    public static function getAnimalLote()
+    {
+        $query = Animal::query();
+        $collection = $query->lists('animal_lote','id');
+        $collection->prepend('','');
+        return $collection;
+    }
    
 }
