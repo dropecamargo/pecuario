@@ -54,6 +54,7 @@ class SanidadController extends Controller
                     $sanidad->fill($data);
                     $sanidad->fillBoolean($data);
                     $sanidad->save();
+                    
 
                     DB::commit();
 
@@ -76,7 +77,7 @@ class SanidadController extends Controller
      */
     public function show($id, Request $request)
     {
-         $sanidad = Sanidad::getSanidad($id);
+         $sanidad = Sanidad::findOrFail($id);
         if ($request->ajax()) {
             return response()->json($sanidad);    
         }        

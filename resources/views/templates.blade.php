@@ -161,6 +161,7 @@
 			<label for="animal_observaciones" class="control-label">Observaciones</label>
 			<input type="text" id="animal_observaciones" name="animal_observaciones" value="<%- animal_observaciones %>" placeholder="Observaciones" class="form-control input-sm input-toupper" maxlength="200" >
 		</div>
+
 		<div class="form-group col-md-1 col-xs-2 text-right">
 			  <div>&nbsp;</div>
 			  <button type="button" class="btn btn-success btn-flat btn-sm btn-add-resource-koi-component" data-resource="Peso" data-field="animal_peso">Peso
@@ -300,7 +301,7 @@
 
 <script type="text/template" id="add-peso-tpl">
     <div class="row">
-     <div class="form-group col-md-2 col-xs-3">
+     <div class="form-group col-md-3 col-xs-3">
 
 			<label for="peso_animal" class="control-label">Animal</label>
 			<select name="peso_animal" id="peso_animal" " class="form-control select2-default" >
@@ -312,6 +313,23 @@
 
 			</select>
 		</div>
+
+
+          
+		
+		
+
+
+		 <div class="row">
+          <div class="form-group col-md-2 col-xs-3">
+		<label for="peso_lote" class="control-label">Lote de animal</label>
+
+         <button class="btn btn-primary" type="button">
+         Lote de animal
+         <span class="badge"></span>
+         </button>
+        </div>
+		</div>
 		
          
 		<div class="form-group col-md-2 col-xs-3">
@@ -321,19 +339,9 @@
 					<option value="{{ $key }}"<%- peso_lote == '{{ $key }}' ? 'selected': ''%>>{{ $value }}</option>
 				@endforeach
 			</select>
-
-
-			   </div>
-     <div class="row">
-          <div class="form-group col-md-2 col-xs-3">
-		<label for="peso_lote" class="control-label">Lote de animal</label>
-
-         <button class="btn btn-primary" type="button">
-         {{ $value }}
-         <span class="badge"></span>
-         </button>
-        </div>
-		</div>
+	   </div>
+	   
+    
 		<div class="form-group col-sm-2">
             <label for="peso_fecha" class="col-sm-1 control-label">Fecha</label>
                 <input type="text" id="peso_fecha" name="peso_fecha" placeholder="Fecha Ingreso" value="<%- peso_fecha %>" class="form-control input-sm datepicker" >
@@ -389,7 +397,7 @@
 		 <div class="row">
 		<div class="form-group col-md-7 ">
 			<label for="sanidad_comentario" class="control-label">Comentario</label>
-			<input type="text" id="sanidad_comentario" name="sanidad_comentario" value="<%- sanidad_comentario %>" placeholder="sanidad comentario" class="form-control input-sm input-toupper" maxlength="200" >
+			<input type="text" id="sanidad_comentario" name="sanidad_comentario" value="<%- sanidad_comentario %>" placeholder="comentario" class="form-control input-sm input-toupper" maxlength="200" >
 		</div>
 		</div>
 
@@ -405,6 +413,7 @@
 			<br><label class="checkbox-inline" for="sanidad_aplicalote">
 				<input type="checkbox" id="sanidad_aplicalote" name="sanidad_aplicalote" value="sanidad_aplicalote" <%- sanidad_aplicalote ? 'checked': ''%>> Aplicar En Lote
 			</label>
+			
 			</div>
         </div>
         <div class="row">

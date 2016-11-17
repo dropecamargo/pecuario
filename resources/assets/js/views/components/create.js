@@ -68,6 +68,13 @@ app || (app = {});
                         var template = _.template($('#add-lote-tpl').html());
                         _this.$modalComponent.find('.content-modal').html( template(_this.model.toJSON()) );
                     },
+                     'peso' : function() {
+                        _this.$modalComponent.find('.inner-title-modal').html('Peso');
+
+                        _this.model = new app.PesoModel();
+                        var template = _.template($('#add-peso-tpl').html());
+                        _this.$modalComponent.find('.content-modal').html( template(_this.model.toJSON()) );
+                    },
                     
                     'animal' : function() {
                         _this.$modalComponent.find('.inner-title-modal').html('Animal');
@@ -83,13 +90,7 @@ app || (app = {});
                         var template = _.template($('#add-sanidad-tpl').html());
                         _this.$modalComponent.find('.content-modal').html( template(_this.model.toJSON()) );
                     },
-                    'peso' : function() {
-                        _this.$modalComponent.find('.inner-title-modal').html('Peso');
-
-                        _this.model = new app.PesoModel();
-                        var template = _.template($('#add-peso-tpl').html());
-                        _this.$modalComponent.find('.content-modal').html( template(_this.model.toJSON()) );
-                    },
+                    
                 };
 
             if (stuffToDo[this.resource]) {
@@ -189,15 +190,16 @@ app || (app = {});
                         _this.$resourceField.select2({ data: [{id: _this.model.get('id'), text: _this.model.get('sanidad_nombre')}] }).trigger('change');
                         _this.$resourceField.val(_this.model.get('id')).trigger('change');
                     },
+                    'peso' : function() {
+                        _this.$resourceField.select2({ data: [{id: _this.model.get('id'), text: _this.model.get('peso_nombre')}] }).trigger('change');
+                        _this.$resourceField.val(_this.model.get('id')).trigger('change');
+                    },
                       
                       'animal' : function() {
                         _this.$resourceField.select2({ data: [{id: _this.model.get('id'), text: _this.model.get('animal_nombre')}] }).trigger('change');
                         _this.$resourceField.val(_this.model.get('id')).trigger('change');
                     },
-                       'peso' : function() {
-                        _this.$resourceField.select2({ data: [{id: _this.model.get('id'), text: _this.model.get('peso_nombre')}] }).trigger('change');
-                        _this.$resourceField.val(_this.model.get('id')).trigger('change');
-                    },
+                       
                 };
 
             if (stuffToDo[this.resource]) {

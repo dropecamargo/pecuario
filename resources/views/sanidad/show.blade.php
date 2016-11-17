@@ -25,14 +25,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-8">
-                    <label class="control-label">Animal</label>
-                    <div>{{ $sanidad->sanidad_animal }}</div>
+                <div class="form-group col-md-2">
+                    <label class="control-label">Nombre</label>
+                    <div>{{ $sanidad->sanidad_actividad }}</div>
+                </div>
             </div>
+            
             <div class="row">
                 <div class="form-group col-md-2">
                     <label class="control-label">Nombre</label>
                     <div>{{ $sanidad->sanidad_nombre }}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label class="control-label">Nombre</label>
+                    <div>{{ $sanidad->sanidad_lote }}</div>
                 </div>
             </div>
         </div>

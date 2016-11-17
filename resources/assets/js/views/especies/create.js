@@ -58,6 +58,9 @@ app || (app = {});
                 window.initComponent.initToUpper();
         },
 
+        
+      
+
         loadSpinner: function (model, xhr, opts) {
             window.Misc.setSpinner( this.el );
         },
